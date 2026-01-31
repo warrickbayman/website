@@ -1,0 +1,39 @@
+@import url(https://fonts.bunny.net/css?family=fira-code:300,500);
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+    --font-mono: 'fira-code', monospace;
+    --color-term-from: var(--color-neutral-900);
+    --color-term-to: var(--color-neutral-800);
+    --color-foreground: var(--color-neutral-200);
+    --color-muted: var(--color-neutral-700);
+    --color-muted-foreground: var(--color-neutral-500);
+    --color-directory: var(--color-neutral-500);
+}
+
+@layer components {
+    .typography {
+        h1 {
+            @apply text-3xl font-bold my-7;
+        }
+
+        h2 {
+            @apply text-2xl font-bold border-b border-neutral-700 my-6 pb-1;
+        }
+
+        h3 {
+            @apply text-xl font-bold border-b border-b-neutral-700 my-4 pb-1;
+        }
+
+        h4 {
+            @apply text-lg font-bold;
+        }
+
+        p {
+            @apply my-6 leading-7 max-w-3xl;
+        }
+    }
+}
