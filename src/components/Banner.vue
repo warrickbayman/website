@@ -1,5 +1,5 @@
 <script setup lang="ts">
-
+const print = () => {}
 </script>
 
 <template>

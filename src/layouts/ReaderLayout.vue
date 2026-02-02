@@ -12,7 +12,7 @@ const emit = defineEmits<{
     (event: 'close'): void,
 }>();
 
-onKeyStroke('Escape', () => {
+onKeyStroke(e => (e.ctrlKey && e.key === 'c') || e.key === 'Escape', () => {
     emit('close');
 })
 
@@ -45,7 +45,7 @@ onKeyStroke('ArrowUp', () => contentRef.value?.scrollBy({left: 0, top: -20, beha
                     </div>
                     <div class="h-5 border-r border-neutral-400"></div>
                     <div>
-                        <strong class="text-neutral-400">ESC</strong> to close
+                        <strong class="text-neutral-400">Ctrl-C</strong> to close
                     </div>
                 </div>
                 <button @click.prevent="emit('close')" class="p-1 rounded hover:bg-neutral-700">

@@ -3,17 +3,33 @@
 import Banner from "@/components/Banner.vue";
 import TerminalLayout from "@/layouts/TerminalLayout.vue";
 import TerminalMenu from "@/components/TerminalMenu.vue";
-import {useTerminalStore} from "@/stores/terminal.ts";
+import { useTerminalStore } from "@/stores/terminal.ts";
+import {onMounted } from "vue";
+import {useRoute} from "vue-router";
 
 const terminal = useTerminalStore();
 terminal.setMenu('main');
+
+const route = useRoute();
+
+onMounted(() => {
+    console.log(route.meta);
+})
+
+const firstVisit = sessionStorage.getItem('firstVisit') !== 'no';
+
+onMounted(() => {
+    setTimeout(() => {
+        sessionStorage.setItem('firstVisit', 'no');
+    }, 200)
+})
 
 </script>
 
 <template>
     <TerminalLayout>
         <template #intro>
-            <p>
+            <p ref="buildTarget">
                 Hi.<br />
                 My name is <strong>WARRICK BAYMAN</strong>.<br />
                 I'm a full-stack web developer specializing in Laravel
@@ -29,7 +45,7 @@ terminal.setMenu('main');
                 </p>
             </div>
         </template>
-        <TerminalMenu menu="main" />
+        <TerminalMenu menu="main" :delay="firstVisit ? 1200 : 0" />
     </TerminalLayout>
 </template>
 

@@ -45,6 +45,10 @@ const handleKeyStroke = (e: KeyboardEvent) => {
 
     if (e.key === 'Backspace') {
         terminal.inputValue = terminal.inputValue.slice(0, -1);
+        if (!terminal.potentials.includes(terminal.inputValue)) {
+            terminal.selected = null;
+        }
+
         return;
     }
 
@@ -58,9 +62,13 @@ const handleKeyStroke = (e: KeyboardEvent) => {
         return;
     }
 
-    if (e.key === 'Shift') return;
+    if (e.key === 'Enter' || e.key === 'Shift') return;
 
     terminal.inputValue += e.key;
+
+    if (!terminal.potentials.includes(terminal.inputValue)) {
+        terminal.selected = null;
+    }
 }
 
 </script>

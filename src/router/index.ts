@@ -1,19 +1,26 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import Home from "@/pages/Home.vue";
-import Readme from "@/pages/Readme.vue";
-import ProjectIndex from "@/pages/projects/Index.vue";
-import ProjectShow from "@/pages/projects/Show.vue";
-import License from "@/pages/License.vue";
-import About from "@/pages/About.vue";
-import Stack from "@/pages/Stack.vue";
+import {createRouter, createWebHistory } from 'vue-router'
 import {Contact} from "lucide-vue-next";
-import ClientIndex from "@/pages/clients/Index.vue";
-import ClientShow from "@/pages/clients/Show.vue";
+
+import Home from "@/pages/Home.vue";
+
+const Readme = () => import("@/pages/Readme.vue");
+const ProjectIndex = () => import("@/pages/projects/Index.vue");
+const ProjectShow = () => import("@/pages/projects/Show.vue");
+const License = () => import("@/pages/License.vue");
+const About = () => import("@/pages/About.vue");
+const Stack = () => import("@/pages/Stack.vue");
+const ClientIndex = () => import("@/pages/clients/Index.vue");
+const ClientShow = () => import("@/pages/clients/Show.vue");
+const OssIndex = () => import('@/pages/oss/Index.vue');
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
-    { path: '/', component: Home, name: 'home' },
+    {
+      path: '/',
+      component: Home,
+      name: 'home',
+    },
     { path: '/about', component: About, name: 'about' },
     {
       path: '/clients',
@@ -24,7 +31,7 @@ const router = createRouter({
     },
     { path: '/contact', component: Contact, name: 'contact' },
     { path: '/license', component: License, name: 'license' },
-    { path: '/oss', component: Home, name: 'oss' },
+    { path: '/oss', component: OssIndex, name: 'oss' },
     {
       path: '/projects',
       component: ProjectIndex,

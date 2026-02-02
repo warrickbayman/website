@@ -15,7 +15,7 @@ const itemType = computed(() => props.item.link ? RouterLink : 'div')
 
 <template>
     <tr>
-        <td class="text-neutral-400">{{ item.directory ? 'd' : '-' }}rwxr-xr-x</td>
+        <td class="text-neutral-400">{{ item.directory ? 'd' : '-' }}{{ item.permissions ?? 'rwxr-xr-x'}}</td>
         <td class="text-neutral-400">{{ item.owner ?? 'warrick' }}</td>
         <td class="text-neutral-400">{{ item.group ?? 'warrick' }}</td>
         <td class="text-neutral-400 text-right">{{ item.size ?? '4096' }}</td>

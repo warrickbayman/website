@@ -1,6 +1,7 @@
 export interface MenuItem {
     directory?: boolean;
     executable?: boolean;
+    permissions?: string;
     owner?: string;
     group?: string;
     size?: string;

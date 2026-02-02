@@ -1,7 +1,7 @@
 <script setup lang="ts">
 
 import TerminalInput from "@/components/TerminalInput.vue";
-import {ref} from "vue";
+import { ref} from "vue";
 import {onKeyStroke} from "@vueuse/core";
 
 defineProps<{
@@ -32,7 +32,7 @@ const editing = () => {
 
 <template>
     <div class="flex flex-col-reverse h-full overflow-auto" ref="terminalRef">
-        <div class="flex items-center gap-2 sticky bottom-0 px-7 py-3 border-t border-neutral-700 bg-neutral-800">
+        <div class="flex z-10 items-center gap-2 sticky bottom-0 px-7 py-3 border-t border-neutral-700 bg-neutral-800">
             <div>
                 $
             </div>
@@ -40,7 +40,9 @@ const editing = () => {
                 placeholder="Use arrow keys to navigate, or type the name of the file or directory. Press F1 for help!"
             />
         </div>
-        <div class="leading-normal max-w-3xl px-7 pt-7 pb-3">
+        <div
+            class="leading-normal max-w-3xl px-7 pt-7 pb-3"
+        >
             <div v-if="$slots.intro" class="mb-7">
                 <slot name="intro" />
             </div>

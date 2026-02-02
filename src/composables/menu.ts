@@ -12,6 +12,7 @@ export function useMenu() {
             owner: 'root',
             group: 'root',
             name: '..',
+            permissions: 'rwx------',
         },{
             name: '.gitignore',
         },{
@@ -68,9 +69,33 @@ export function useMenu() {
         }
     ]
 
+    const ossMenuItems: MenuItem[] = [
+        {
+            directory: true,
+            name: '.',
+        }, {
+            directory: true,
+            name: '..',
+            link: '/',
+        }
+    ]
+
+    const projectMenuItems: MenuItem[] = [
+        {
+            directory: true,
+            name: '.',
+        },{
+            directory: true,
+            name: '..',
+            link: '/',
+        }
+    ];
+
     const items: Record<MenuType, MenuItem[]> = {
         main: mainMenuItems,
         clients: clientMenuItems,
+        oss: ossMenuItems,
+        projects: projectMenuItems,
     }
 
     return {

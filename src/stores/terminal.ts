@@ -2,7 +2,7 @@ import { defineStore } from "pinia";
 import { computed, ref, watch } from "vue";
 import { useMenu } from "@/composables/menu.ts";
 
-export type MenuType = 'main' | 'clients';
+export type MenuType = 'main' | 'clients' | 'oss' | 'projects';
 
 export const useTerminalStore = defineStore('terminal', () => {
 
