@@ -16,8 +16,9 @@ export function useMenu() {
         },{
             name: '.gitignore',
         },{
-            name: 'about_me.md',
+            name: 'about_me',
             link: '/about',
+            executable: true,
         }, {
             directory: true,
             name: 'clients/',
@@ -28,7 +29,8 @@ export function useMenu() {
             link: '/contact'
         },{
             name: 'LICENSE.md',
-            link: '/license'
+            link: '/license',
+            permissions: 'rw-rw-r--'
         },{
             directory: true,
             name: 'oss/',
@@ -40,9 +42,11 @@ export function useMenu() {
         },{
             name: 'README.md',
             link: '/readme',
+            permissions: 'rw-rw-r--'
         },{
             name: 'stack.md',
             link: '/stack',
+            permissions: 'rw-rw-r--'
         }
     ];
 
