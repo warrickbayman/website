@@ -35,5 +35,17 @@
         p {
             @apply my-6 leading-7 max-w-3xl;
         }
+
+        ul {
+            @apply list-disc list-outside mt-3;
+        }
+
+        ol {
+            @apply list-decimal list-inside mt-3;
+        }
+
+        ul li, ol li {
+            @apply ml-5 pl-2 mb-3;
+        }
     }
 }

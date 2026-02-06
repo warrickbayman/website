@@ -21,7 +21,18 @@ const router = createRouter({
       component: Home,
       name: 'home',
     },
-    { path: '/about', component: About, name: 'about' },
+    {
+      path: '/about',
+      component: About,
+      name: 'about',
+      children: [
+        { path: '/about', component: () => import("@/pages/about/Me.vue"), name: 'me' },
+        { path: '/about/core', component: () => import("@/pages/about/Core.vue"), name: 'core' },
+        { path: '/about/current', component: () => import("@/pages/about/Current.vue"), name: 'current' },
+        { path: '/about/experience', component: () => import("@/pages/about/Experience.vue"), name: 'experience' },
+        { path: '/about/future', component: () => import("@/pages/about/Future.vue"), name: 'future'},
+      ]
+    },
     {
       path: '/clients',
       children: [
