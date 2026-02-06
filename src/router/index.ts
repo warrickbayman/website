@@ -37,7 +37,17 @@ const router = createRouter({
       path: '/clients',
       children: [
         { path: '', component: ClientIndex, name: 'clients' },
-        { path: ':client', component: ClientShow, name: 'clients.show', props: true },
+        {
+          path: '',
+          component: ClientShow,
+          name: 'clients.show',
+          children: [
+            { path: 'hotpress', component: () => import("@/pages/clients/HotPress.vue"), name: 'clients.hotpress' },
+            { path: 'mycalture', component: () => import("@/pages/clients/Mycalture.vue"), name: 'clients.mycalture' },
+            { path: 'trc', component: () => import("@/pages/clients/TRC.vue"), name: 'clients.trc' },
+            { path: 'whodunnit', component: () => import("@/pages/clients/Whodunnit.vue"), name: 'clients.whodunnit' },
+          ]
+        },
       ]
     },
     { path: '/contact', component: Contact, name: 'contact' },

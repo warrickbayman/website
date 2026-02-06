@@ -2,6 +2,7 @@
 import {onUnmounted, ref} from "vue";
 import {onKeyStroke} from "@vueuse/core";
 import router from "@/router";
+import {useRoute} from "vue-router";
 
 const rates = ref<{t: number, b: number}[]>([])
 
@@ -74,9 +75,28 @@ const menuItems: MenuItem[] = [
     }
 ]
 
+const route = useRoute();
+
 const current = ref<number|null>(null);
 
-onKeyStroke('ArrowDown', () => {
+switch (route.name) {
+    case 'me': current.value = 0; break;
+    case 'core': current.value = 1; break;
+    case 'current': current.value = 2; break;
+    case 'experience': current.value = 3; break;
+    case 'future': current.value = 4; break;
+}
+
+const mainRef = ref<HTMLElement>();
+
+const navigateDown = (e: KeyboardEvent) => {
+    e.preventDefault();
+
+    if (mainActive.value) {
+        mainRef.value!.scrollBy({left: 0, top: 20, behavior: 'smooth'});
+        return;
+    }
+
     if (current.value === null) {
         current.value = 0;
         return;
@@ -85,9 +105,16 @@ onKeyStroke('ArrowDown', () => {
     if (current.value < menuItems.length - 1) {
         current.value++;
     }
-});
+}
 
-onKeyStroke('ArrowUp', () => {
+const navigateUp = (e: KeyboardEvent) => {
+    e.preventDefault();
+
+    if (mainActive.value) {
+        mainRef.value!.scrollBy({left: 0, top: -20, behavior: 'smooth'});
+        return;
+    }
+
     if (current.value === null) {
         current.value = menuItems.length - 1;
         return;
@@ -96,7 +123,13 @@ onKeyStroke('ArrowUp', () => {
     if (current.value > 0) {
         current.value--;
     }
-});
+}
+
+onKeyStroke('ArrowDown', (e) => navigateDown(e));
+onKeyStroke('ArrowUp', (e) => navigateUp(e));
+onKeyStroke(e => e.ctrlKey && e.key === 'a', () => mainRef.value?.scrollTo({left: 0, top: 0, behavior: 'smooth'}))
+onKeyStroke(e => e.ctrlKey && e.key === 'e', () => mainRef.value?.scrollTo({left: 0, top: mainRef.value?.scrollHeight, behavior: 'smooth'}))
+
 
 onKeyStroke('Enter', () => {
     if (current.value === null) return;
@@ -104,11 +137,24 @@ onKeyStroke('Enter', () => {
     router.push(menuItems[current.value]!.link);
 })
 
+onKeyStroke('Escape', () => {
+    router.push('/');
+});
+
+const mainActive = ref(false);
+
+onKeyStroke('Tab', (e) => {
+    e.preventDefault();
+    mainActive.value = !mainActive.value;
+})
+
 </script>
 
 <template>
     <div class="p-10 flex flex-col gap-5 max-h-full h-full">
-        <div class="border border-neutral-500 p-4 rounded flex-none">
+        <div
+            class="border p-4 rounded flex-none border-neutral-500"
+        >
             <div class="flex justify-between">
                 <div class="flex-1">
                     <div class="flex gap-2">
@@ -121,7 +167,7 @@ onKeyStroke('Enter', () => {
                     </div>
                 </div>
                 <div class="flex flex-col justify-end text-lime-300">
-                    instance > current
+                    instance > {{ route.name }}
                 </div>
             </div>
             <hr class="border-neutral-500 my-3" />
@@ -160,7 +206,13 @@ onKeyStroke('Enter', () => {
         </div>
         <div class="flex gap-5 flex-1 overflow-hidden">
             <div class="w-2/3 flex gap-5 h-full">
-                <div class="flex flex-col gap-2 border border-neutral-500 rounded p-4">
+                <div
+                    class="flex flex-col gap-2 border border-neutral-500 rounded p-4"
+                    :class="{
+                        'border-neutral-500': mainActive,
+                        'border-white': !mainActive,
+                    }"
+                >
                     <RouterLink
                         :to="item.link"
                         class="flex gap-2 px-1 rounded" v-for="(item, index) in menuItems"
@@ -172,8 +224,14 @@ onKeyStroke('Enter', () => {
                         <span>{{ item.label }}</span>
                     </RouterLink>
                 </div>
-                <div class="border border-neutral-500 rounded p-4 flex-1">
-                    <div class="h-full overflow-auto">
+                <div
+                    class="border rounded p-4 flex-1"
+                    :class="{
+                        'border-neutral-500': !mainActive,
+                        'border-white': mainActive,
+                    }"
+                >
+                    <div class="h-full overflow-auto" ref="mainRef">
                         <RouterView />
                     </div>
                 </div>
@@ -203,6 +261,37 @@ onKeyStroke('Enter', () => {
                         />
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="border border-neutral-500 rounded p-4 text-sm flex gap-3">
+            <div class="flex gap-2">
+                <strong>Esc</strong>
+                <div class="text-neutral-500">Close</div>
+            </div>
+            <div class="h-5 border-r border-neutral-400"></div>
+            <div class="flex gap-2">
+                <strong>↑↓</strong>
+                <div class="text-neutral-500">Navigate Up/Down</div>
+            </div>
+            <div class="h-5 border-r border-neutral-400"></div>
+            <div class="flex gap-2">
+                <strong>Tab</strong>
+                <div class="text-neutral-500">Switch Pane</div>
+            </div>
+            <div class="h-5 border-r border-neutral-400"></div>
+            <div class="flex gap-2">
+                <strong>Cmd-A</strong>
+                <div class="text-neutral-500">Top</div>
+            </div>
+            <div class="h-5 border-r border-neutral-400"></div>
+            <div class="flex gap-2">
+                <strong>Cmd-E</strong>
+                <div class="text-neutral-500">Bottom</div>
+            </div>
+            <div class="h-5 border-r border-neutral-400"></div>
+            <div class="flex gap-2">
+                <strong>Enter</strong>
+                <div class="text-neutral-500">Select</div>
             </div>
         </div>
     </div>
