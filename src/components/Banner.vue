@@ -3,7 +3,8 @@ const print = () => {}
 </script>
 
 <template>
-    <div class="leading-4 flex items-center text-neutral-600">
+    <div class="scale-50 -translate-x-20 -my-12">
+        <div class="leading-4 flex items-center text-neutral-600">
         <pre>
 <span class="row1">██</span>╗    <span class="row1">██</span>╗ <span class="row1">█████</span>╗ <span class="row1">██████</span>╗ <span class="row1">██████</span>╗ <span class="row1">██</span>╗ <span class="row1">██████</span>╗ <span class="row1">██</span>╗  <span class="row1">██</span>╗
 <span class="row2">██</span>║    <span class="row2">██</span>║<span class="row2">██</span>╔══<span class="row2">██</span>╗<span class="row2">██</span>╔══<span class="row2">██</span>╗<span class="row2">██</span>╔══<span class="row2">██</span>╗<span class="row2">██</span>║<span class="row2">██</span>╔════╝ <span class="row2">██</span>║ <span class="row2">██</span>╔╝
@@ -12,8 +13,8 @@ const print = () => {}
 ╚<span class="row5">███</span>╔<span class="row5">███</span>╔╝<span class="row5">██</span>║  <span class="row5">██</span>║<span class="row5">██</span>║  <span class="row5">██</span>║<span class="row5">██</span>║  <span class="row5">██</span>║<span class="row5">██</span>║╚<span class="row5">██████</span>╗ <span class="row5">██</span>║   <span class="row5">██</span>╗
 <span>╚══╝╚══╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝ ╚═════╝  ╚═╝   ╚═╝</span>
         </pre>
-    </div>
-    <div class="leading-4 flex items-center text-neutral-600">
+        </div>
+        <div class="leading-4 flex items-center text-neutral-600">
         <pre>
 <span class="row1">██████</span>╗  <span class="row1">█████</span>╗ <span class="row1">██</span>╗   <span class="row1">██</span>╗<span class="row1">███</span>╗   <span class="row1">███</span>╗ <span class="row1">█████</span>╗ <span class="row1">███</span>╗   <span class="row1">██</span>╗
 <span class="row2">██</span>╔══<span class="row2">██</span>╗<span class="row2">██</span>╔══<span class="row2">██</span>╗╚<span class="row2">██</span>╗ <span class="row2">██</span>╔╝<span class="row2">████</span>╗ <span class="row2">████</span>║<span class="row2">██</span>╔══<span class="row2">██</span>╗<span class="row2">████</span>╗  <span class="row2">██</span>║
@@ -22,6 +23,7 @@ const print = () => {}
 <span class="row5">██████</span>╔╝<span class="row5">██</span>║  <span class="row5">██</span>║   <span class="row5">██</span>║   <span class="row5">██</span>║ ╚═╝ <span class="row5">██</span>║<span class="row5">██</span>║  <span class="row5">██</span>║<span class="row5">██</span>║ ╚<span class="row5">████</span>║
 <span>╚═════╝ ╚═╝  ╚═╝   ╚═╝   ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝</span>
         </pre>
+        </div>
     </div>
 </template>
 

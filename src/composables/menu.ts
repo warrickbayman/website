@@ -1,5 +1,8 @@
 import type {MenuItem} from "@/types";
 import type {MenuType} from "@/stores/terminal.ts";
+import {type Client, clients} from "@/composables/clients.ts";
+import {type Project, projects} from "@/composables/projects.ts";
+import {type OpenSource, oss} from "@/composables/oss.ts";
 
 export function useMenu() {
 
@@ -58,19 +61,13 @@ export function useMenu() {
             directory: true,
             name: '..',
             link: '/',
-        },{
-            name: 'hotpress_media.md',
-            link: 'clients/hotpress',
-        },{
-            name: 'mycalture_marketing.md',
-            link: 'clients/mycalture',
-        },{
-            name: 'the_raw_connect.md',
-            link: 'clients/trc',
-        },{
-            name: 'whodunnit.md',
-            link: 'clients/whodunnit',
-        }
+        },
+        ...clients.value.map((client: Client) => {
+            return {
+                name: client.title,
+                link: client.link,
+            }
+        })
     ]
 
     const ossMenuItems: MenuItem[] = [
@@ -81,7 +78,13 @@ export function useMenu() {
             directory: true,
             name: '..',
             link: '/',
-        }
+        },
+        ...oss.value.map((oss: OpenSource) => {
+            return {
+                name: oss.title,
+                link: oss.link,
+            }
+        })
     ]
 
     const projectMenuItems: MenuItem[] = [
@@ -92,7 +95,13 @@ export function useMenu() {
             directory: true,
             name: '..',
             link: '/',
-        }
+        },
+        ...projects.value.map((project: Project) => {
+            return {
+                name: project.title,
+                link: project.link,
+            }
+        }),
     ];
 
     const items: Record<MenuType, MenuItem[]> = {

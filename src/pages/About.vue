@@ -151,7 +151,7 @@ onKeyStroke('Tab', (e) => {
 </script>
 
 <template>
-    <div class="p-10 flex flex-col gap-5 max-h-full h-full">
+    <div class="p-5 lg:p-7 flex flex-col gap-5 max-h-full h-full overflow-hidden">
         <div
             class="border p-4 rounded flex-none border-neutral-500"
         >
@@ -166,12 +166,12 @@ onKeyStroke('Tab', (e) => {
                         <div class="font-bold">gq, EC, ZA</div>
                     </div>
                 </div>
-                <div class="flex flex-col justify-end text-lime-300">
+                <div class="flex-col justify-end text-lime-300 hidden lg:flex">
                     instance > {{ route.name }}
                 </div>
             </div>
             <hr class="border-neutral-500 my-3" />
-            <div class="flex gap-4">
+            <div class="gap-4 hidden lg:flex">
                 <div class="flex gap-2">
                     <div class="text-neutral-400">Core:</div>
                     <div class="font-bold">php + laravel, typescript, vue</div>
@@ -187,7 +187,7 @@ onKeyStroke('Tab', (e) => {
                     <div class="font-bold">apple_macos, fedora, ubuntu</div>
                 </div>
             </div>
-            <div class="flex gap-4">
+            <div class="gap-4 hidden lg:flex">
                 <div class="flex gap-2">
                     <div class="text-neutral-400">Host:</div>
                     <div class="font-bold">digitalocean, google_cloud, private_vps</div>
@@ -205,9 +205,9 @@ onKeyStroke('Tab', (e) => {
             </div>
         </div>
         <div class="flex gap-5 flex-1 overflow-hidden">
-            <div class="w-2/3 flex gap-5 h-full">
+            <div class="w-full lg:w-2/3 flex flex-col lg:flex-row gap-5 h-full overflow-hidden">
                 <div
-                    class="flex flex-col gap-2 border border-neutral-500 rounded p-4"
+                    class="flex-col gap-2 border border-neutral-500 rounded p-4"
                     :class="{
                         'border-neutral-500': mainActive,
                         'border-white': !mainActive,
@@ -220,7 +220,7 @@ onKeyStroke('Tab', (e) => {
                             'bg-neutral-700': current === index,
                         }"
                     >
-                        <span :class="item.class">{{ item.progress }}</span>
+                        <span :class="item.class" class="hidden lg:inline">{{ item.progress }}</span>
                         <span>{{ item.label }}</span>
                     </RouterLink>
                 </div>
@@ -236,7 +236,7 @@ onKeyStroke('Tab', (e) => {
                     </div>
                 </div>
             </div>
-            <div class="bg-neutral-700/20 rounded h-40 w-1/3 overflow-hidden">
+            <div class="bg-neutral-700/20 rounded h-40 w-1/3 overflow-hidden hidden lg:block">
                 <div class="border-b h-1/2 grid grid-cols-50 gap-0.5 px-0.5 pt-1 overflow-hidden">
                     <div v-for="rate in rates" class="flex flex-col justify-end">
                         <div
@@ -263,7 +263,7 @@ onKeyStroke('Tab', (e) => {
                 </div>
             </div>
         </div>
-        <div class="border border-neutral-500 rounded p-4 text-sm flex gap-3">
+        <div class="border border-neutral-500 rounded p-4 text-sm gap-3 hidden lg:flex">
             <div class="flex gap-2">
                 <strong>Esc</strong>
                 <div class="text-neutral-500">Close</div>

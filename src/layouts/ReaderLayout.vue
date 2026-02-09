@@ -26,7 +26,7 @@ onKeyStroke('ArrowUp', () => contentRef.value?.scrollBy({left: 0, top: -20, beha
 </script>
 
 <template>
-    <div class="h-full p-7">
+    <div class="h-full p-5 lg:p-7">
         <div class="border border-neutral-200 h-full rounded flex flex-col">
             <div class="border-b border-neutral-200 p-3 flex items-center gap-3">
                 <div class="font-bold flex items-center gap-3">
@@ -35,17 +35,17 @@ onKeyStroke('ArrowUp', () => contentRef.value?.scrollBy({left: 0, top: -20, beha
                 </div>
                 <div class="text-neutral-600 ml-auto flex items-center gap-3 text-sm">
                     <div>
-                        <strong class="text-neutral-400">Ctrl-A</strong>
+                        <strong class="text-neutral-400 hidden lg:inline">Ctrl-A</strong>
                         Top
                     </div>
                     <div class="h-5 border-r border-neutral-400"></div>
                     <div>
-                        <strong class="text-neutral-400">Ctrl-E</strong>
+                        <strong class="text-neutral-400 hidden lg:inline">Ctrl-E</strong>
                         Bottom
                     </div>
                     <div class="h-5 border-r border-neutral-400"></div>
-                    <div>
-                        <strong class="text-neutral-400">Ctrl-C</strong> to close
+                    <div class="hidden lg:block">
+                        <strong class="text-neutral-400">Ctrl-C</strong> Close
                     </div>
                 </div>
                 <button @click.prevent="emit('close')" class="p-1 rounded hover:bg-neutral-700">

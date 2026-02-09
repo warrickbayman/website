@@ -3,39 +3,7 @@
 </script>
 
 <template>
-    <div>
-        <div class="border border-neutral-500 rounded p-4">
-            <div class="rounded-lg bg-white p-5 inline-flex itens-center justify-center w-50 mb-5">
-                <img src="/images/trc.jpg" alt="TRC" class="w-full" />
-            </div>
-            <table>
-                <tr>
-                    <td class="font-bold pr-4 text-neutral-500">URL:</td>
-                    <td>
-                        <a href="https://mycalture.com/" target="_blank" class="underline text-blue-400">https://therawconnect.co.za/</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="font-bold pr-4 text-neutral-500">Based:</td>
-                    <td>
-                        Bedfordview, South Africa
-                    </td>
-                </tr>
-                <tr>
-                    <td class="font-bold pr-4 text-neutral-500">Roles:</td>
-                    <td>
-                        Web Development, DevOps, Database Admin
-                    </td>
-                </tr>
-                <tr>
-                    <td class="font-bold pr-4 text-neutral-500">References:</td>
-                    <td>
-                        On Request
-                    </td>
-                </tr>
-            </table>
-        </div>
-
+    <div class="typography">
         <p>
             The Raw Connect (officially TRC) is an interesting business. They started as a platform attempting to offer
             a complete online marking package to small business, including a simple home page, a new feed, an online
