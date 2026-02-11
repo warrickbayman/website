@@ -64,37 +64,44 @@ const client = computed<Client>(() => {
     <ReaderLayout :title="client.title" @close="router.push('/clients')">
         <div class="border border-neutral-500 rounded p-4">
             <img :src="client.logo" :alt="client.title" class="w-50 mb-5" />
-            <table>
-                <tr>
-                    <td class="font-bold pr-4 text-neutral-500">URL:</td>
-                    <td>
+            <div>
+                <div class="detail">
+                    <div class="label">URL:</div>
+                    <div>
                         <a :href="client.link" target="_blank" class="underline text-blue-400">{{ client.link }}</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="font-bold pr-4 text-neutral-500">Based:</td>
-                    <td>
+                    </div>
+                </div>
+                <div class="detail">
+                    <div class="label">Based:</div>
+                    <div>
                         {{ client.location }}
-                    </td>
-                </tr>
-                <tr>
-                    <td class="font-bold pr-4 text-neutral-500">Roles:</td>
-                    <td>
+                    </div>
+                </div>
+                <div class="detail">
+                    <div class="label">Roles:</div>
+                    <div>
                         {{ client.roles }}
-                    </td>
-                </tr>
-                <tr>
-                    <td class="font-bold pr-4 text-neutral-500">References:</td>
-                    <td>
+                    </div>
+                </div>
+                <div class="detail">
+                    <div class="label">References:</div>
+                    <div>
                         On Request
-                    </td>
-                </tr>
-            </table>
+                    </div>
+                </div>
+            </div>
         </div>
         <RouterView />
     </ReaderLayout>
 </template>
 
 <style scoped>
+@reference "../../main.css";
 
+.detail {
+    @apply flex flex-col lg:flex-row;
+    .label {
+        @apply font-bold pr-4 text-neutral-500 w-36 mt-1 lg:mt-0;
+    }
+}
 </style>

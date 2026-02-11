@@ -50,7 +50,7 @@ const experience: ExperienceItem[] = [
 </script>
 
 <template>
-    <div>
+    <div class="p-4">
         <template v-for="(item, index) in experience" :key="index">
             <div class="flex">
                 <div class="w-12 mt-[0.2rem] flex flex-col items-center">

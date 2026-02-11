@@ -3,7 +3,7 @@ const print = () => {}
 </script>
 
 <template>
-    <div class="scale-50 -translate-x-20 -my-12">
+    <div class="scale-50 md:scale-75 lg:scale-100 origin-left -my-12 md:-my-7 lg:my-0">
         <div class="leading-4 flex items-center text-neutral-600">
         <pre>
 <span class="row1">██</span>╗    <span class="row1">██</span>╗ <span class="row1">█████</span>╗ <span class="row1">██████</span>╗ <span class="row1">██████</span>╗ <span class="row1">██</span>╗ <span class="row1">██████</span>╗ <span class="row1">██</span>╗  <span class="row1">██</span>╗

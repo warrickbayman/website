@@ -3,7 +3,7 @@
 </script>
 
 <template>
-    <div class="typography text-neutral-500">
+    <div class="typography text-neutral-500 p-4">
         <strong class="text-white">
             HELLO, IS IT ME YOU'RE LOOKING FOR?
         </strong>

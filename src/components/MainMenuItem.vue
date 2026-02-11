@@ -20,7 +20,7 @@ const itemType = computed(() => props.item.link ? RouterLink : 'div')
         <td class="text-neutral-400 hidden">{{ item.group ?? 'warrick' }}</td>
         <td class="text-neutral-400 text-right hidden">{{ item.size ?? '4096' }}</td>
         <td class="text-neutral-400 hidden">{{ item.month ?? 'Jan' }}</td>
-        <td class="text-neutral-400 text-right">{{ item.time ?? '2026' }}</td>
+        <td class="text-neutral-400 hidden text-right">{{ item.time ?? '2026' }}</td>
         <td>
             <component :to="item.link" :is="itemType" class="rounded inline-block -ml-2 px-2" :class="{
                 'text-white': !item.directory && !item.executable,

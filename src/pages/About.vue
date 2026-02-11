@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import {onUnmounted, ref} from "vue";
-import {onKeyStroke} from "@vueuse/core";
+import { onUnmounted, ref } from "vue";
+import { onKeyStroke } from "@vueuse/core";
 import router from "@/router";
-import {useRoute} from "vue-router";
+import { useRoute } from "vue-router";
+import { XIcon } from "lucide-vue-next";
 
 const rates = ref<{t: number, b: number}[]>([])
 
@@ -41,6 +42,7 @@ onUnmounted(() => {
 
 interface MenuItem {
     label: string;
+    shortLabel: string;
     progress: string;
     class: string;
     link: string;
@@ -49,26 +51,31 @@ interface MenuItem {
 const menuItems: MenuItem[] = [
     {
         label: 'Me',
+        shortLabel: 'Me',
         progress: 'DONE',
         class: 'text-green-400',
         link: '/about',
     },{
         label: 'Core Skills',
+        shortLabel: 'Cor',
         progress: 'DONE',
         class: 'text-green-400',
         link: '/about/core'
     }, {
         label: 'Current Job',
+        shortLabel: 'Cur',
         progress: 'DONE',
         class: 'text-green-400',
         link: '/about/current'
     }, {
         label: 'Experience',
+        shortLabel: 'Exp',
         progress: 'PROG',
         class: 'text-orange-400',
         link: '/about/experience'
     }, {
         label: 'Future Thinking',
+        shortLabel: 'Fut',
         progress: 'PEND',
         class: 'text-red-400',
         link: '/about/future'
@@ -76,6 +83,8 @@ const menuItems: MenuItem[] = [
 ]
 
 const route = useRoute();
+
+console.log(route);
 
 const current = ref<number|null>(null);
 
@@ -204,10 +213,26 @@ onKeyStroke('Tab', (e) => {
                 </div>
             </div>
         </div>
+        <div class="flex lg:hidden gap-3">
+            <RouterLink
+                :to="item.link"
+                exact-active-class="active-link"
+                class="flex gap-2 px-1 rounded" v-for="(item, index) in menuItems"
+                :class="{
+                    'bg-neutral-700': current === index,
+                }"
+            >
+                <span>{{ item.shortLabel }}</span>
+            </RouterLink>
+
+            <RouterLink to="/" class="ml-auto">
+                <XIcon />
+            </RouterLink>
+        </div>
         <div class="flex gap-5 flex-1 overflow-hidden">
-            <div class="w-full lg:w-2/3 flex flex-col lg:flex-row gap-5 h-full overflow-hidden">
+            <div class="w-full lg:w-2/3 flex gap-5 h-full overflow-hidden">
                 <div
-                    class="flex-col gap-2 border border-neutral-500 rounded p-4"
+                    class="flex-col gap-2 border hidden lg:flex border-neutral-500 rounded p-4"
                     :class="{
                         'border-neutral-500': mainActive,
                         'border-white': !mainActive,
@@ -215,6 +240,7 @@ onKeyStroke('Tab', (e) => {
                 >
                     <RouterLink
                         :to="item.link"
+                        exact-active-class="active-link"
                         class="flex gap-2 px-1 rounded" v-for="(item, index) in menuItems"
                         :class="{
                             'bg-neutral-700': current === index,
@@ -225,7 +251,7 @@ onKeyStroke('Tab', (e) => {
                     </RouterLink>
                 </div>
                 <div
-                    class="border rounded p-4 flex-1"
+                    class="border rounded flex-1"
                     :class="{
                         'border-neutral-500': !mainActive,
                         'border-white': mainActive,
@@ -264,10 +290,10 @@ onKeyStroke('Tab', (e) => {
             </div>
         </div>
         <div class="border border-neutral-500 rounded p-4 text-sm gap-3 hidden lg:flex">
-            <div class="flex gap-2">
+            <RouterLink to="/" class="flex gap-2">
                 <strong>Esc</strong>
                 <div class="text-neutral-500">Close</div>
-            </div>
+            </RouterLink>
             <div class="h-5 border-r border-neutral-400"></div>
             <div class="flex gap-2">
                 <strong>↑↓</strong>
@@ -298,5 +324,9 @@ onKeyStroke('Tab', (e) => {
 </template>
 
 <style scoped>
+@reference "../main.css";
 
+.active-link {
+    @apply bg-cyan-600;
+}
 </style>

@@ -4,7 +4,7 @@ import ProgressBar from "@/components/ProgressBar.vue";
 </script>
 
 <template>
-    <div>
+    <div class="p-4">
         <div class="typography">
             <strong>WHAT'S NEXT?</strong>
             <p>

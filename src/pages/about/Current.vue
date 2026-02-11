@@ -3,7 +3,7 @@
 </script>
 
 <template>
-    <div class="typography">
+    <div class="typography p-4">
         <strong>Current Job</strong>
         <img src="/images/tpg.png" alt="THEPUBLICGOOD" class="w-64 my-5" />
         <ul>

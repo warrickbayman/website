@@ -35,7 +35,7 @@ const skills = [
 </script>
 
 <template>
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 p-4">
         <div class="border border-neutral-500 rounded p-3 min-h-28" v-for="skill in skills">
             <strong>{{ skill.label }}</strong>
             <hr class="my-3" />
