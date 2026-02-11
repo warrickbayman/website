@@ -16,11 +16,11 @@ const itemType = computed(() => props.item.link ? RouterLink : 'div')
 <template>
     <tr>
         <td class="text-neutral-400">{{ item.directory ? 'd' : '-' }}{{ item.permissions ?? 'rwxr-xr-x'}}</td>
-        <td class="text-neutral-400 hidden">{{ item.owner ?? 'warrick' }}</td>
-        <td class="text-neutral-400 hidden">{{ item.group ?? 'warrick' }}</td>
-        <td class="text-neutral-400 text-right hidden">{{ item.size ?? '4096' }}</td>
-        <td class="text-neutral-400 hidden">{{ item.month ?? 'Jan' }}</td>
-        <td class="text-neutral-400 hidden text-right">{{ item.time ?? '2026' }}</td>
+        <td class="text-neutral-400 hidden md:table-cell">{{ item.owner ?? 'warrick' }}</td>
+        <td class="text-neutral-400 hidden lg:table-cell">{{ item.group ?? 'warrick' }}</td>
+        <td class="text-neutral-400 text-right hidden md:table-cell">{{ item.size ?? '4096' }}</td>
+        <td class="text-neutral-400 hidden lg:table-cell">{{ item.month ?? 'Jan' }}</td>
+        <td class="text-neutral-400 hidden lg:table-cell text-right">{{ item.time ?? '2026' }}</td>
         <td>
             <component :to="item.link" :is="itemType" class="rounded inline-block -ml-2 px-2" :class="{
                 'text-white': !item.directory && !item.executable,

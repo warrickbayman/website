@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import MainMenuItem from "@/components/MainMenuItem.vue";
+import TerminalMenuItem from "@/components/TerminalMenuItem.vue";
 import { onKeyStroke } from "@vueuse/core";
 import {type MenuType, useTerminalStore} from "@/stores/terminal.ts";
 import {onMounted, ref} from "vue";
@@ -59,7 +59,7 @@ onMounted(async () => {
                 </td>
             </tr>
             <template v-for="(item, index) in menuItems" :key="index">
-                <MainMenuItem :item="item" />
+                <TerminalMenuItem :item="item" />
             </template>
             </tbody>
         </table>

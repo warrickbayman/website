@@ -84,8 +84,6 @@ const menuItems: MenuItem[] = [
 
 const route = useRoute();
 
-console.log(route);
-
 const current = ref<number|null>(null);
 
 switch (route.name) {
@@ -179,7 +177,7 @@ onKeyStroke('Tab', (e) => {
                     instance > {{ route.name }}
                 </div>
             </div>
-            <hr class="border-neutral-500 my-3" />
+            <hr class="border-neutral-500 my-3 hidden lg:block" />
             <div class="gap-4 hidden lg:flex">
                 <div class="flex gap-2">
                     <div class="text-neutral-400">Core:</div>
@@ -196,6 +194,7 @@ onKeyStroke('Tab', (e) => {
                     <div class="font-bold">apple_macos, fedora, ubuntu</div>
                 </div>
             </div>
+            <hr class="border-neutral-400 my-2 hidden lg:block" />
             <div class="gap-4 hidden lg:flex">
                 <div class="flex gap-2">
                     <div class="text-neutral-400">Host:</div>
@@ -230,7 +229,7 @@ onKeyStroke('Tab', (e) => {
             </RouterLink>
         </div>
         <div class="flex gap-5 flex-1 overflow-hidden">
-            <div class="w-full lg:w-2/3 flex gap-5 h-full overflow-hidden">
+            <div class="flex-1 flex gap-5 h-full overflow-hidden">
                 <div
                     class="flex-col gap-2 border hidden lg:flex border-neutral-500 rounded p-4"
                     :class="{
@@ -262,7 +261,7 @@ onKeyStroke('Tab', (e) => {
                     </div>
                 </div>
             </div>
-            <div class="bg-neutral-700/20 rounded h-40 w-1/3 overflow-hidden hidden lg:block">
+            <div class="bg-neutral-700/20 rounded h-40 w-1/3 overflow-hidden hidden xl:block">
                 <div class="border-b h-1/2 grid grid-cols-50 gap-0.5 px-0.5 pt-1 overflow-hidden">
                     <div v-for="rate in rates" class="flex flex-col justify-end">
                         <div
@@ -306,12 +305,12 @@ onKeyStroke('Tab', (e) => {
             </div>
             <div class="h-5 border-r border-neutral-400"></div>
             <div class="flex gap-2">
-                <strong>Cmd-A</strong>
+                <strong>Ctrl-A</strong>
                 <div class="text-neutral-500">Top</div>
             </div>
             <div class="h-5 border-r border-neutral-400"></div>
             <div class="flex gap-2">
-                <strong>Cmd-E</strong>
+                <strong>Ctrl-E</strong>
                 <div class="text-neutral-500">Bottom</div>
             </div>
             <div class="h-5 border-r border-neutral-400"></div>
