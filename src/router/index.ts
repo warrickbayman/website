@@ -5,7 +5,6 @@ import Home from "@/pages/Home.vue";
 
 const Readme = () => import("@/pages/Readme.vue");
 const ProjectIndex = () => import("@/pages/projects/Index.vue");
-const ProjectShow = () => import("@/pages/projects/Show.vue");
 const License = () => import("@/pages/License.vue");
 const About = () => import("@/pages/About.vue");
 const Stack = () => import("@/pages/Stack.vue");
@@ -55,10 +54,13 @@ const router = createRouter({
     { path: '/oss', component: OssIndex, name: 'oss' },
     {
       path: '/projects',
-      component: ProjectIndex,
-      name: 'projects',
       children: [
-        { path: ':project', component: ProjectShow, name: 'project.show' }
+        { path: '', component: ProjectIndex, name: 'projects.index' },
+        { path: 'clikblox', component: () => import('@/pages/projects/Clikblox.vue'), name: 'projects.clikblox' },
+        { path: 'eventpress', component: () => import('@/pages/projects/EventPress.vue'), name: 'projects.eventpress' },
+        { path: 'motorpress', component: () => import('@/pages/projects/MotorPress.vue'), name: 'projects.motorpress' },
+        { path: 'teqapp', component: () => import('@/pages/projects/TeqApp.vue'), name: 'projects.teqapp' },
+        { path: 'trc', component: () => import('@/pages/projects/TRC.vue'), name: 'projects.trc' }
       ]
     },
     { path: '/readme', component: Readme, name: 'readme' },
