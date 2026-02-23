@@ -14,7 +14,7 @@ const itemType = computed(() => props.item.link ? RouterLink : 'div')
 </script>
 
 <template>
-    <tr>
+    <tr class="menu-item">
         <td class="text-neutral-400">{{ item.directory ? 'd' : '-' }}{{ item.permissions ?? 'rwxr-xr-x'}}</td>
         <td class="text-neutral-400 hidden md:table-cell">{{ item.owner ?? 'warrick' }}</td>
         <td class="text-neutral-400 hidden lg:table-cell">{{ item.group ?? 'warrick' }}</td>
@@ -29,7 +29,7 @@ const itemType = computed(() => props.item.link ? RouterLink : 'div')
                 'bg-neutral-700': terminalStore.selectedItem?.name === item.name,
                 'hover:bg-neutral-700': !!item.link,
             }">
-                <div class="flex" v-if="terminalStore.inputValue && terminalStore.potentials.includes(item.name)">
+                <div class="flex search-result" v-if="terminalStore.inputValue && terminalStore.potentials.includes(item.name)">
                     <span class="bg-cyan-500 text-cyan-100 rounded">{{ terminalStore.inputValue }}</span>
                     <span>{{ item.name.substring(terminalStore.inputValue.length) }}</span>
                 </div>

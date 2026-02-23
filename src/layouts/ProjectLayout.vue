@@ -13,7 +13,7 @@ const project = computed(() => {
     return projects.value.find((project: Project) => project.title === props.title)!
 })
 
-onKeyStroke((e) => e.ctrlKey && e.key === 'o', () => window.open(project.value.url, '_blank'));
+onKeyStroke((e) => e.ctrlKey && e.key === 'o', () => project.value.url ? window.open(project.value.url, '_blank') : null);
 onKeyStroke('Escape', () => router.push('/projects'));
 </script>
 
@@ -42,8 +42,14 @@ onKeyStroke('Escape', () => router.push('/projects'));
                         </div>
                         <div class="border-r border-neutral-400" />
                         <div class="flex gap-2">
-                            <div class="text-neutral-400">URL (Ctrl-O to open):</div>
-                            <div class="font-bold text-green-400">{{ project.url }}</div>
+                            <template v-if="project.url">
+                                <div class="text-neutral-400">URL (Ctrl-O to open):</div>
+                                <div class="font-bold text-green-400">{{ project.url }}</div>
+                            </template>
+                            <template v-else>
+                                <div class="text-neutral-400">URL:</div>
+                                <div class="font-bold text-orange-400">Not publicly accessible</div>
+                            </template>
                         </div>
                         <div class="border-r border-neutral-400" />
                         <div class="flex gap-2">

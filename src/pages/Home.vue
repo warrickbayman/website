@@ -31,9 +31,11 @@ onMounted(() => {
         <template #intro>
             <p ref="buildTarget">
                 Hi.<br />
-                My name is <strong>WARRICK BAYMAN</strong>.<br />
-                I'm a full-stack web developer specializing in Laravel
-                and Vue.
+                <span class="itsme">
+                    My name is <strong>WARRICK BAYMAN</strong>.<br />
+                    I'm a full-stack web developer specializing in Laravel
+                    and Vue.
+                </span>
             </p>
             <div class="leading-normal">&nbsp;</div>
             <Banner />

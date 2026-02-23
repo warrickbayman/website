@@ -29,7 +29,7 @@ onKeyStroke('ArrowUp', () => contentRef.value?.scrollBy({left: 0, top: -20, beha
     <div class="h-full p-5 lg:p-7">
         <div class="border border-neutral-200 h-full rounded flex flex-col">
             <div class="border-b border-neutral-200 p-3 flex items-center gap-3">
-                <div class="font-bold hidden sm:flex items-center gap-3">
+                <div class="font-bold hidden sm:flex items-center gap-3 reader-title">
                     <FileIcon class="size-5 hidden md:inline" />
                     {{ title }}
                 </div>

@@ -5,7 +5,7 @@ export interface Project {
     name: string
     client: string
     link?: string
-    url: string
+    url?: string
     target: string
     roles: string
     logo?: string
@@ -121,7 +121,6 @@ export const projects = ref<Project[]>([
         client: 'Mycalture Marketing cc.',
         link: 'projects/teqapp',
         target: 'Enterprise',
-        url: 'https://teqapp.co.za',
         roles: 'Development, UI Design, Server Management, Database Admin, DevOps',
         stack: [
             'Laravel 12',

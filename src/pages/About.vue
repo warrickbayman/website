@@ -158,7 +158,7 @@ onKeyStroke('Tab', (e) => {
 </script>
 
 <template>
-    <div class="p-5 lg:p-7 flex flex-col gap-5 max-h-full h-full overflow-hidden">
+    <div id="about_me" class="p-5 lg:p-7 flex flex-col gap-5 max-h-full h-full overflow-hidden">
         <div
             class="border p-4 rounded flex-none border-neutral-500"
         >
@@ -212,23 +212,23 @@ onKeyStroke('Tab', (e) => {
                 </div>
             </div>
         </div>
-        <div class="flex lg:hidden gap-3">
+        <div class="flex lg:hidden gap-3 mobile-menu">
             <RouterLink
                 :to="item.link"
                 exact-active-class="active-link"
                 class="flex gap-2 px-1 rounded" v-for="(item, index) in menuItems"
                 :class="{
-                    'bg-neutral-700': current === index,
+                    'highlighted bg-neutral-700': current === index,
                 }"
             >
-                <span>{{ item.shortLabel }}</span>
+                <span class="link-label">{{ item.shortLabel }}</span>
             </RouterLink>
 
             <RouterLink to="/" class="ml-auto">
                 <XIcon />
             </RouterLink>
         </div>
-        <div class="flex gap-5 flex-1 overflow-hidden">
+        <div class="flex gap-5 flex-1 overflow-hidden desktop-menu">
             <div class="flex-1 flex gap-5 h-full overflow-hidden">
                 <div
                     class="flex-col gap-2 border hidden lg:flex border-neutral-500 rounded p-4"
@@ -242,15 +242,15 @@ onKeyStroke('Tab', (e) => {
                         exact-active-class="active-link"
                         class="flex gap-2 px-1 rounded" v-for="(item, index) in menuItems"
                         :class="{
-                            'bg-neutral-700': current === index,
+                            'highlighted bg-neutral-700': current === index,
                         }"
                     >
                         <span :class="item.class" class="hidden lg:inline">{{ item.progress }}</span>
-                        <span>{{ item.label }}</span>
+                        <span class="link-label">{{ item.label }}</span>
                     </RouterLink>
                 </div>
                 <div
-                    class="border rounded flex-1"
+                    class="border rounded flex-1 workspace"
                     :class="{
                         'border-neutral-500': !mainActive,
                         'border-white': mainActive,
