@@ -57,7 +57,9 @@ const router = createRouter({
       children: [
         { path: '', component: ProjectIndex, name: 'projects.index' },
         { path: 'clikblox', component: () => import('@/pages/projects/Clikblox.vue'), name: 'projects.clikblox' },
+        { path: 'donnasfitness', component: () => import('@/pages/projects/DonnasFitness.vue'), name: 'projects.donnasfitness' },
         { path: 'eventpress', component: () => import('@/pages/projects/EventPress.vue'), name: 'projects.eventpress' },
+        { path: 'eventpress-mobile', component: () => import('@/pages/projects/EventPressMobile.vue'), name: 'projects.eventpress.mobile' },
         { path: 'motorpress', component: () => import('@/pages/projects/MotorPress.vue'), name: 'projects.motorpress' },
         { path: 'teqapp', component: () => import('@/pages/projects/TeqApp.vue'), name: 'projects.teqapp' },
         { path: 'trc', component: () => import('@/pages/projects/TRC.vue'), name: 'projects.trc' }

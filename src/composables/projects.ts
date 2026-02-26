@@ -30,16 +30,16 @@ export const projects = ref<Project[]>([
             {
                 path: '/images/projects/clikblox/login.png',
                 caption: 'Login',
-            },{
+            }, {
                 path: '/images/projects/clikblox/page.png',
                 caption: 'Page Layout Editor',
-            },{
+            }, {
                 path: '/images/projects/clikblox/component.png',
                 caption: 'Page Component Editor',
-            },{
+            }, {
                 path: '/images/projects/clikblox/url.png',
                 caption: 'Project URL',
-            },{
+            }, {
                 path: '/images/projects/clikblox/appearance.png',
                 caption: 'Project Appearance',
             }
@@ -57,6 +57,31 @@ export const projects = ref<Project[]>([
             'Vimeo',
             'Paystack',
             'Supervisor',
+        ]
+    },{
+        title: 'donnas_fitness.md',
+        name: 'Donna\'s Health and Fitness',
+        client: 'Donna\'s Health and Fitness',
+        link: 'projects/donnasfitness',
+        url: 'https://gym.donnasfitness.co.za',
+        target: 'Public',
+        roles: 'Development, UI, Server Management, Database Admin, DevOps, Project Management',
+        logo: '/images/donnasfitness.png',
+        stack: [
+            'Laravel 12',
+            'PHP 8.4',
+            'MySQL 8',
+            'Redis',
+            'Vue 3',
+            'JavaScript',
+            'Inertia',
+            'TailwindCSS',
+            'TipTap',
+            'Vimeo',
+            'QEncode',
+            'Paystack',
+            'Supervisor',
+            'Mailgun',
         ]
     },{
         title: 'eventpress.md',
@@ -90,7 +115,22 @@ export const projects = ref<Project[]>([
             'WhatsApp Cloud API',
             'Slack',
         ]
-    },{
+    }, {
+        title: 'eventpress_mobile.md',
+        name: 'EventPress Mobile Checkin',
+        client: 'HotPress Media (Pty) Ltd.',
+        link: 'projects/eventpress-mobile',
+        url: 'https://eventpress.co.za',
+        target: 'Closed',
+        roles: 'Development, UI Design, Project Management',
+        logo: '/images/eventpress.png',
+        stack: [
+            'Laravel 12',
+            'NativePHP 2/3',
+            'Android',
+            'Vue 3',
+        ]
+    }, {
         title: 'motorpress.md',
         name: 'MotorPress',
         client: 'HotPress Media (Pty) Ltd.',
