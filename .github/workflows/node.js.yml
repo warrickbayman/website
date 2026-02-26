@@ -31,8 +31,5 @@ jobs:
       run: npm ci
     - run: sudo apt-get install xvfb
 
-    - name: npm-build
-      run: npm run build
-
     - name: Run Nightwatch tests
       run: xvfb-run --auto-servernum npm test -- --env chrome
