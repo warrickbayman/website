@@ -1,5 +1,7 @@
 # warrickbayman.com
 
+[![Tests](https://github.com/warrickbayman/website/actions/workflows/node.js.yml/badge.svg)](https://github.com/warrickbayman/website/actions/workflows/node.js.yml)
+
 The `warrickbayman.com` site is built on Vue with Vue Router and Pinia for state management. The site is open source,
 but since it's my personal website, I probably won't take any contributions unless they're to fix bugs.
 

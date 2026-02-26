@@ -9,7 +9,7 @@
     "preview": "vite preview",
     "build-only": "vite build",
     "type-check": "vue-tsc --build",
-    "test": "nightwatch --headless"
+    "test": "concurrently --kill-others --raw 'npm run dev' 'nightwatch --headless'"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.18",
@@ -30,6 +30,7 @@
     "@types/node": "^24.10.9",
     "@vitejs/plugin-vue": "^6.0.3",
     "@vue/tsconfig": "^0.8.1",
+    "concurrently": "^9.2.1",
     "nightwatch": "^3.15.0",
     "npm-run-all2": "^8.0.4",
     "ts-node": "^10.9.2",
