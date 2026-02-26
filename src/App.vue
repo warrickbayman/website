@@ -9,10 +9,6 @@ const isMobile = () => {
         return false;
     }
 
-    if (navigator.userAgentData) {
-        return !!navigator.userAgentData.mobile;
-    }
-
     return window.matchMedia('(pointer: coarse)').matches || (('ontouchstart' in window) || (navigator.maxTouchPoints > 0));
 }
 
