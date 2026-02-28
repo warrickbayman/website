@@ -1,5 +1,6 @@
 import {browser} from "nightwatch";
-import {OpenSource, oss} from "../src/composables/oss";
+import {oss} from "../src/composables/oss";
+import {Project} from "../src/types";
 
 describe('OSS tests', () => {
 
@@ -15,9 +16,9 @@ describe('OSS tests', () => {
     it('lists the OSS projects', () => {
         browser.navigateTo(browser.baseUrl + 'oss');
 
-        oss.value.forEach((client: OpenSource, index) => {
+        oss.value.forEach((project: Project, index) => {
             browser.element.findAll('.menu-item').nth(index + 2)
-                .getText().assert.contains(client.title);
+                .getText().assert.contains(project.title);
 
         });
     })

@@ -1,8 +1,8 @@
-import type {MenuItem} from "@/types";
+import type {MenuItem, Project} from "@/types";
 import type {MenuType} from "@/stores/terminal.ts";
 import {type Client, clients} from "@/composables/clients.ts";
-import {type Project, projects} from "@/composables/projects.ts";
-import {type OpenSource, oss} from "@/composables/oss.ts";
+import {projects} from "@/composables/projects.ts";
+import {oss} from "@/composables/oss.ts";
 
 export function useMenu() {
 
@@ -79,7 +79,7 @@ export function useMenu() {
             name: '..',
             link: '/',
         },
-        ...oss.value.map((oss: OpenSource) => {
+        ...oss.value.map((oss: Project) => {
             return {
                 name: oss.title,
                 link: oss.link,

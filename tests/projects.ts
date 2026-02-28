@@ -1,5 +1,6 @@
 import {browser} from "nightwatch";
-import {Project, projects} from "../src/composables/projects";
+import {projects} from "../src/composables/projects";
+import {Project} from "../src/types";
 
 describe('Project tests', () => {
 

@@ -9,7 +9,7 @@
     "preview": "vite preview",
     "build-only": "vite build",
     "type-check": "vue-tsc --build",
-    "test": "concurrently --raw --kill-others --names=\"dev,nightwatch\" --success=command-nightwatch 'npm run dev' 'nightwatch --headless --timeout=10'"
+    "test": "nightwatch --headless --timeout=10"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.18",

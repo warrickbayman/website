@@ -1,24 +1,20 @@
 <script setup lang="ts">
-import {type Project, projects} from "@/composables/projects.ts";
-import {computed} from "vue";
 import {onKeyStroke} from "@vueuse/core";
 import {XIcon} from "lucide-vue-next";
 import router from "@/router";
+import type {Project} from "@/types";
 
 const props = defineProps<{
-    title: string
+    project: Project|null,
+    returnPath: string,
 }>();
 
-const project = computed(() => {
-    return projects.value.find((project: Project) => project.title === props.title)!
-})
-
-onKeyStroke((e) => e.ctrlKey && e.key === 'o', () => project.value.url ? window.open(project.value.url, '_blank') : null);
-onKeyStroke('Escape', () => router.push('/projects'));
+onKeyStroke((e) => e.ctrlKey && e.key === 'o', () => props.project && props.project.url ? window.open(props.project.url, '_blank') : null);
+onKeyStroke('Escape', () => router.push(props.returnPath));
 </script>
 
 <template>
-    <div class="p-5 lg:p-7 flex flex-col gap-5 max-h-full h-full overflow-hidden">
+    <div class="p-5 lg:p-7 flex flex-col gap-5 max-h-full h-full overflow-hidden" v-if="project">
         <div
             class="border p-4 rounded flex-none border-neutral-500"
         >
@@ -29,7 +25,7 @@ onKeyStroke('Escape', () => router.push('/projects'));
                             <div class="text-neutral-400">Project name:</div>
                             <div class="font-bold">{{ project.name }}</div>
                         </div>
-                        <RouterLink to="/projects" class="flex gap-2 items-center">
+                        <RouterLink :to="returnPath" class="flex gap-2 items-center">
                             <XIcon />
                             <span class="text-neutral-500">Close</span>
                             (Esc)
@@ -76,13 +72,26 @@ onKeyStroke('Escape', () => router.push('/projects'));
                 <div class="w-3/5">
                     <slot />
                 </div>
-                <div class="p-4 w-2/5 flex flex-col gap-3">
+                <div
+                    class="p-4 w-2/5 grid gap-3"
+                    :class="{
+                        'grid-cols-1': project.imageColumns === 1,
+                        'grid-cols-2': project.imageColumns === 2,
+                    }"
+                >
                     <figure v-for="image in project.images" class="rounded overflow-hidden border p-4">
                         <img class="rounded" :src="image.path" :alt="image.caption" :title="image.caption" />
+                        <p class="text-xs text-right mt-2 mr-2 text-neutral-500">{{ image.caption }}</p>
                     </figure>
                 </div>
             </div>
         </div>
+    </div>
+    <div v-else class="h-full flex items-center justify-center flex-col">
+        <h1 class="font-bold text-3xl">404</h1>
+        <p class="text-neutral-400">No such project found.</p>
+        <hr class="my-3 w-full border-neutral-500" />
+        <RouterLink :to="returnPath" class="bg-neutral-700 py-1 px-1">Go back to all projects (ESC)</RouterLink>
     </div>
 </template>
 

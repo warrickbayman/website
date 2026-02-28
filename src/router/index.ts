@@ -1,16 +1,6 @@
 import {createRouter, createWebHistory } from 'vue-router'
-import {Contact} from "lucide-vue-next";
 
 import Home from "@/pages/Home.vue";
-
-const Readme = () => import("@/pages/Readme.vue");
-const ProjectIndex = () => import("@/pages/projects/Index.vue");
-const License = () => import("@/pages/License.vue");
-const About = () => import("@/pages/About.vue");
-const Stack = () => import("@/pages/Stack.vue");
-const ClientIndex = () => import("@/pages/clients/Index.vue");
-const ClientShow = () => import("@/pages/clients/Show.vue");
-const OssIndex = () => import('@/pages/oss/Index.vue');
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -22,7 +12,7 @@ const router = createRouter({
     },
     {
       path: '/about',
-      component: About,
+      component: () => import("@/pages/About.vue"),
       name: 'about',
       children: [
         { path: '/about', component: () => import("@/pages/about/Me.vue"), name: 'me' },
@@ -35,10 +25,10 @@ const router = createRouter({
     {
       path: '/clients',
       children: [
-        { path: '', component: ClientIndex, name: 'clients' },
+        { path: '', component: () => import("@/pages/clients/Index.vue"), name: 'clients' },
         {
           path: '',
-          component: ClientShow,
+          component: () => import("@/pages/clients/Show.vue"),
           name: 'clients.show',
           children: [
             { path: 'hotpress', component: () => import("@/pages/clients/HotPress.vue"), name: 'clients.hotpress' },
@@ -49,24 +39,24 @@ const router = createRouter({
         },
       ]
     },
-    { path: '/contact', component: Contact, name: 'contact' },
-    { path: '/license', component: License, name: 'license' },
-    { path: '/oss', component: OssIndex, name: 'oss' },
+    { path: '/contact', component: () => import("@/pages/Contact.vue"), name: 'contact' },
+    { path: '/license', component: () => import("@/pages/License.vue"), name: 'license' },
+    {
+      path: '/oss',
+      children: [
+        { path: '', component: () => import('@/pages/oss/Index.vue'), name: 'oss.index' },
+        { path: ':name', component: () => import('@/pages/oss/Show.vue'), name: 'oss.show', props: true },
+      ]
+    },
     {
       path: '/projects',
       children: [
-        { path: '', component: ProjectIndex, name: 'projects.index' },
-        { path: 'clikblox', component: () => import('@/pages/projects/Clikblox.vue'), name: 'projects.clikblox' },
-        { path: 'donnasfitness', component: () => import('@/pages/projects/DonnasFitness.vue'), name: 'projects.donnasfitness' },
-        { path: 'eventpress', component: () => import('@/pages/projects/EventPress.vue'), name: 'projects.eventpress' },
-        { path: 'eventpress-mobile', component: () => import('@/pages/projects/EventPressMobile.vue'), name: 'projects.eventpress.mobile' },
-        { path: 'motorpress', component: () => import('@/pages/projects/MotorPress.vue'), name: 'projects.motorpress' },
-        { path: 'teqapp', component: () => import('@/pages/projects/TeqApp.vue'), name: 'projects.teqapp' },
-        { path: 'trc', component: () => import('@/pages/projects/TRC.vue'), name: 'projects.trc' }
+        { path: '', component: () => import("@/pages/projects/Index.vue"), name: 'projects.index' },
+        { path: ':name', component: () => import("@/pages/projects/Show.vue"), name: 'projects.show', props: true },
       ]
     },
-    { path: '/readme', component: Readme, name: 'readme' },
-    { path: '/stack', component: Stack, name: 'stack' },
+    { path: '/readme', component: () => import("@/pages/Readme.vue"), name: 'readme' },
+    { path: '/stack', component: () => import("@/pages/Stack.vue"), name: 'stack' },
   ],
 })
 
