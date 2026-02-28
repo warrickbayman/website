@@ -1,6 +1,4 @@
 import {ref} from "vue";
-import Platoon from "@/pages/oss/Platoon.vue";
-import Deadbolt from "@/pages/oss/Deadbolt.vue";
 import type {Project} from "@/types";
 
 export const oss = ref<Project[]>([
@@ -8,7 +6,6 @@ export const oss = ref<Project[]>([
         title: 'platoon.md',
         name: 'Platoon',
         client: 'THEPUBLICGOOD (Pty) Ltd.',
-        component: Platoon,
         link: 'oss/platoon.md',
         url: 'https://github.com/tpg/platoon',
         target: 'Public',
@@ -20,10 +17,20 @@ export const oss = ref<Project[]>([
         title: 'deadbolt.md',
         name: 'Deadbolt',
         client: 'THEPUBLICGOOD (Pty) Ltd.',
-        component: Deadbolt,
         link: 'oss/deadbolt.md',
         url: 'https://github.com/tpg/deadbolt',
         target: 'Public',
+        roles: 'Development',
+        stack: [
+            'PHP',
+        ]
+    },{
+        title: 'is_presentable.md',
+        name: 'IsPresentable',
+        client: 'THEPUBLICGOOD (Pty) Ltd.',
+        link: 'oss/is_presentable.md',
+        url: 'https://github.com/tpg/ispresentable',
+        target: 'public',
         roles: 'Development',
         stack: [
             'PHP',

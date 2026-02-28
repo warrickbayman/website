@@ -65,7 +65,7 @@ export function useMenu() {
         ...clients.value.map((client: Client) => {
             return {
                 name: client.title,
-                link: client.link,
+                link: `/clients/${client.title}`,
             }
         })
     ]
@@ -82,7 +82,7 @@ export function useMenu() {
         ...oss.value.map((oss: Project) => {
             return {
                 name: oss.title,
-                link: oss.link,
+                link: `/oss/${oss.title}`,
             }
         })
     ]
@@ -99,7 +99,7 @@ export function useMenu() {
         ...projects.value.map((project: Project) => {
             return {
                 name: project.title,
-                link: project.link,
+                link: `/projects/${project.title}`,
             }
         }),
     ];

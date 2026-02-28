@@ -3,6 +3,7 @@ import {getProject} from "@/composables/projects.ts";
 import ProjectLayout from "@/layouts/ProjectLayout.vue";
 import {onKeyStroke} from "@vueuse/core";
 import router from "@/router";
+import MarkdownRender from "@/components/MarkdownRender.vue";
 
 const props = defineProps<{
     name: string
@@ -16,7 +17,9 @@ onKeyStroke('Escape', () => router.push('/projects'));
 
 <template>
     <ProjectLayout :project="project" return-path="/projects">
-        <component :is="project?.component" />
+        <div class="p-4">
+            <MarkdownRender :file="`projects/${name}`" />
+        </div>
     </ProjectLayout>
 </template>
 

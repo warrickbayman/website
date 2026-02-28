@@ -17,6 +17,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-vue-next": "^0.563.0",
+    "markdown-it": "^14.1.1",
     "pinia": "^3.0.4",
     "reka-ui": "^2.8.0",
     "tailwind-merge": "^3.4.0",
@@ -27,6 +28,7 @@
   "devDependencies": {
     "@swc/core": "^1.15.11",
     "@tsconfig/node24": "^24.0.4",
+    "@types/markdown-it": "^14.1.2",
     "@types/node": "^24.10.9",
     "@vitejs/plugin-vue": "^6.0.3",
     "@vue/tsconfig": "^0.8.1",

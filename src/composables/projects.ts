@@ -1,12 +1,4 @@
-import {type Component, ref} from "vue";
-import Clikblox from "@/pages/projects/Clikblox.vue";
-import DonnasFitness from "@/pages/projects/DonnasFitness.vue";
-import EventPress from "@/pages/projects/EventPress.vue";
-import EventPressMobile from "@/pages/projects/EventPressMobile.vue";
-import MediaLink from "@/pages/projects/MediaLink.vue";
-import MotorPress from "@/pages/projects/MotorPress.vue";
-import TeqApp from "@/pages/projects/TeqApp.vue";
-import TRC from "@/pages/projects/TRC.vue";
+import {ref} from "vue";
 import type {Project} from "@/types";
 
 export const projects = ref<Project[]>([
@@ -14,8 +6,6 @@ export const projects = ref<Project[]>([
         title: 'clikblox.md',
         name: 'ClikBlox',
         client: 'HotPress Media (Pty) Ltd.',
-        component: Clikblox,
-        link: 'projects/clikblox.md',
         url: 'https://clikblox.com',
         target: 'Public',
         roles: 'Development, UI design, Server Management, Database Admin, DevOps, Project Management',
@@ -56,8 +46,6 @@ export const projects = ref<Project[]>([
         title: 'donnas_fitness.md',
         name: 'Donna\'s Health and Fitness',
         client: 'Donna\'s Health and Fitness',
-        component: DonnasFitness,
-        link: 'projects/donnas_fitness.md',
         url: 'https://gym.donnasfitness.co.za',
         target: 'Public',
         roles: 'Development, UI, Server Management, Database Admin, DevOps, Project Management',
@@ -97,8 +85,6 @@ export const projects = ref<Project[]>([
         title: 'eventpress.md',
         name: 'EventPress',
         client: 'HotPress Media (Pty) Ltd.',
-        component: EventPress,
-        link: 'projects/eventpress.md',
         url: 'https://eventpress.co.za',
         target: 'Public/Enterprise',
         roles: 'Development, UI design, Server Management, Database Admin, DevOps, Project Management',
@@ -157,8 +143,6 @@ export const projects = ref<Project[]>([
         title: 'eventpress_mobile.md',
         name: 'EventPress Mobile Checkin',
         client: 'HotPress Media (Pty) Ltd.',
-        component: EventPressMobile,
-        link: 'projects/eventpress_mobile.md',
         url: 'https://eventpress.co.za',
         target: 'Closed',
         roles: 'Development, UI Design, Project Management',
@@ -195,8 +179,6 @@ export const projects = ref<Project[]>([
         title: 'medialink_api.md',
         name: 'MediaLink API',
         client: 'HotPress Media (Pty) Ltd.',
-        component: MediaLink,
-        link: 'projects/medialink_api.md',
         url: 'https://y2fmyzh7h0.apidog.io',
         target: 'Public',
         roles: 'Development, API Design, Documentation, Project Management',
@@ -218,8 +200,6 @@ export const projects = ref<Project[]>([
         title: 'motorpress.md',
         name: 'MotorPress',
         client: 'HotPress Media (Pty) Ltd.',
-        component: MotorPress,
-        link: 'projects/motorpress.md',
         url: 'https://motorpress.co.za',
         target: 'Media',
         roles: 'Development, UI design, Server Management, Database Admin, DevOps, Project Management',
@@ -274,8 +254,6 @@ export const projects = ref<Project[]>([
         title: 'teqapp.md',
         name: 'TeqApp',
         client: 'Mycalture Marketing cc.',
-        component: TeqApp,
-        link: 'projects/teqapp.md',
         target: 'Enterprise',
         roles: 'Development, UI Design, Server Management, Database Admin, DevOps',
         stack: [
@@ -313,8 +291,6 @@ export const projects = ref<Project[]>([
         title: 'trc.md',
         name: 'TRC',
         client: 'The Raw Connect (Pty) Ltd.',
-        component: TRC,
-        link: 'projects/trc.md',
         url: 'https://therawconnect.co.za',
         target: 'Public',
         roles: 'Development, Server Management, Database Admin, DevOps',
@@ -346,5 +322,5 @@ export const projects = ref<Project[]>([
 ]);
 
 export function getProject(key: string): Project|null {
-    return projects.value.find(project => project.link === 'projects/' + key) ?? null;
+    return projects.value.find(project => project.title === key) ?? null;
 }
