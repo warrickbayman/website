@@ -3,6 +3,7 @@ import ReaderLayout from "@/layouts/ReaderLayout.vue";
 import router from "@/router";
 import {onKeyStroke} from "@vueuse/core";
 import {computed, ref} from "vue";
+import MarkdownRender from "@/components/MarkdownRender.vue";
 
 interface Block {
     name: string;
@@ -41,17 +42,17 @@ const browsers: Block[] = [
     {
         name: 'Dia',
         version: '1.136.0',
-        description: 'I loved what The Browser Company did with Arc. Dia isn\'t quite there yet, but it\'s getting closer. The UI is also far better than anything else out there.',
+        description: 'I loved what The Browser Company did with Arc. Dia isn\'t quite there yet, but it\'s getting closer. The AI integration isn\'t all that bad, and the UI is also far better than anything else out there.',
         url: 'https://diabrowser.com/',
     },{
         name: 'Zen',
         version: '1.18.10b',
-        description: 'I\'ve been testing out Zen as a replacement for Arc for a little while now. It\'s better in some ways, and not good in others, but in time I think it could be a worthwhile replacement.',
+        description: 'I\'ve been testing out Zen as a replacement for Arc for a little while now. It\'s better in some ways, and not good in other ways. In time, I think it could be a worthwhile replacement.',
         url: 'https://zen-browser.app/',
     }, {
         name: 'Google Chrome',
         version: '145.0',
-        description: 'I use Chrome purely as a development environment as it\'s what most users would be using. I don\'t like to mix my personal browser with my development one.',
+        description: 'I use Chrome purely as a development environment. I don\'t like to mix my personal browser with my development one.',
         url: 'https://www.google.com/chrome/',
     }
 ];
@@ -60,7 +61,7 @@ const tools: Block[] = [
     {
         name: 'Jetbrains PHPStorm',
         version: '2025.3.3',
-        description: 'PHPStorm is my main IDE. I spend most of my time working here. I\'ve been a PHPStorm user for well over 10 years. Nothing else comes close',
+        description: 'PHPStorm is my main IDE. I spend most of my time working here. I\'ve been a PHPStorm user for well over 10 years. Nothing else comes close.',
         url: 'https://www.jetbrains.com/phpstorm/',
     },{
         name: 'Microsoft Visual Studio Code',
@@ -218,10 +219,24 @@ onKeyStroke('Enter', (e) => {
     window.open(currentBlock.value.url, '_blank');
 })
 
+const keyboard = {
+    'Tab': 'Select Next',
+    'Shift-Tab': 'Select Previous',
+    'Enter': 'Open URL',
+};
+
 </script>
 
 <template>
-    <ReaderLayout title="stack.md" @close="router.push('/')">
+    <ReaderLayout title="stack.md" @close="router.push('/')" :keyboard="keyboard">
+        <div class="flex flex-col lg:flex-row gap-5">
+            <div class="w-full lg:w-1/2">
+                <MarkdownRender file="stack.md" />
+            </div>
+            <div class="w-full lg:w-1/2 mb-5">
+                <img src="/images/desktop.jpg" alt="Desktop" class="rounded block w-full" />
+            </div>
+        </div>
         <div ref="stackRef">
             <section v-for="(stack, stackIndex) in stacks" :key="stackIndex">
                 <header>

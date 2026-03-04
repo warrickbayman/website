@@ -46,13 +46,13 @@ onKeyStroke('ArrowUp', () => contentRef.value?.scrollBy({left: 0, top: -20, beha
                             Bottom
                         </div>
                     </div>
-                    <template v-for="(description, key) in keyboard" v-if="keyboard">
+                    <div v-for="(description, key) in keyboard" v-if="keyboard" class="hidden lg:flex gap-3">
                         <div class="h-5 border-r border-neutral-400"></div>
                         <div>
                             <strong class="text-neutral-400 hidden lg:inline">{{ key }}</strong>
                             {{ description }}
                         </div>
-                    </template>
+                    </div>
                     <div class="h-5 border-r border-neutral-400 hidden lg:block"></div>
                     <div class="hidden lg:block">
                         <strong class="text-neutral-400">Ctrl-C</strong> Close
