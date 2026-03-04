@@ -74,7 +74,7 @@ const handleKeyStroke = (e: KeyboardEvent) => {
 </script>
 
 <template>
-    <div class="flex items-center">
+    <div class="flex items-center whitespace-nowrap">
         <div v-html="terminal.inputValue" />
         <div class="inline-block h-5 w-1 rounded bg-white/50 animate-caret-blink"></div>
         <div v-if="!!placeholder && !terminal.inputValue" class="text-sm text-muted">{{ placeholder }}</div>

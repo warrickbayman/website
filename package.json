@@ -9,7 +9,7 @@
     "preview": "vite preview",
     "build-only": "vite build",
     "type-check": "vue-tsc --build",
-    "test": "nightwatch --headless --timeout=10"
+    "test": "nightwatch --headless --timeout=10000"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.18",

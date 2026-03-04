@@ -3,6 +3,7 @@
 import Help from "@/components/Help.vue";
 import {Button} from "@/components/ui/button";
 import {ref} from "vue";
+import {onKeyStroke} from "@vueuse/core";
 
 const isMobile = () => {
     if (localStorage.getItem('mobileWarned') === '1') {
@@ -19,6 +20,10 @@ const confirmMobile = () => {
     showMobileWarning.value = false;
 }
 
+onKeyStroke(e => e.key === 'y' && e.ctrlKey && showMobileWarning.value, () => {
+    confirmMobile();
+})
+
 </script>
 
 <template>
@@ -30,7 +35,7 @@ const confirmMobile = () => {
                 <Help />
             </div>
         </div>
-        <div v-if="showMobileWarning" class="fixed backdrop-blur z-30 left-0 top-0 w-full h-full flex items-center justify-center">
+        <div v-if="showMobileWarning" class="fixed backdrop-blur p-5 shadow-xl z-30 left-0 top-0 w-full h-full flex items-center justify-center">
             <div class="max-w-xl w-full bg-term-to rounded-lg p-4 shadow-xl text-white">
                 <div class="typography">
                     <strong>BETTER WITH A KEYBOARD.</strong>
@@ -41,7 +46,7 @@ const confirmMobile = () => {
                             keyboard-centric environment, and you'll get a better experience using an actual computer.
                         </p>
                     </div>
-                    <Button variant="outline" @click="confirmMobile">Okay, cool.</Button>
+                    <Button variant="outline" @click="confirmMobile">Okay, cool <span class="text-neutral-500">(Ctrl-Y)</span>.</Button>
                 </div>
             </div>
         </div>

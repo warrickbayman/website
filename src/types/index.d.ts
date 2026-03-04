@@ -26,3 +26,11 @@ export interface Project {
     }[],
     stack?: string[],
 }
+
+export interface Client {
+    title: string
+    url: string
+    location: string
+    roles: string
+    logo: string
+}

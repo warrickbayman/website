@@ -1,5 +1,6 @@
 import {browser} from "nightwatch";
-import {Client, clients} from "../src/composables/clients";
+import {clients} from "../src/composables/clients";
+import {Client} from "../src/types";
 
 describe('Clients tests', () => {
 
@@ -27,7 +28,7 @@ describe('Clients tests', () => {
         const client = clients.value[1];
 
         browser.element.findByText(client.title).click();
-        browser.assert.urlEquals(browser.baseUrl + client.link);
+        browser.assert.urlEquals(browser.baseUrl + 'clients/' + client.title);
     })
 
 });

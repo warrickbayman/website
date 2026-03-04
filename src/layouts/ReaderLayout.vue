@@ -6,6 +6,7 @@ import { FileIcon } from "lucide-vue-next";
 
 defineProps<{
     title?: string;
+    keyboard?: Record<string, string>
 }>();
 
 const emit = defineEmits<{
@@ -34,16 +35,25 @@ onKeyStroke('ArrowUp', () => contentRef.value?.scrollBy({left: 0, top: -20, beha
                     {{ title }}
                 </div>
                 <div class="text-neutral-600 ml-auto flex items-center gap-3 text-sm">
-                    <div>
-                        <strong class="text-neutral-400 hidden lg:inline">Ctrl-A</strong>
-                        Top
+                    <div class="hidden lg:flex gap-3">
+                        <div>
+                            <strong class="text-neutral-400">Ctrl-A</strong>
+                            Top
+                        </div>
+                        <div class="h-5 border-r border-neutral-400"></div>
+                        <div>
+                            <strong class="text-neutral-400 hidden lg:inline">Ctrl-E</strong>
+                            Bottom
+                        </div>
                     </div>
-                    <div class="h-5 border-r border-neutral-400"></div>
-                    <div>
-                        <strong class="text-neutral-400 hidden lg:inline">Ctrl-E</strong>
-                        Bottom
-                    </div>
-                    <div class="h-5 border-r border-neutral-400"></div>
+                    <template v-for="(description, key) in keyboard" v-if="keyboard">
+                        <div class="h-5 border-r border-neutral-400"></div>
+                        <div>
+                            <strong class="text-neutral-400 hidden lg:inline">{{ key }}</strong>
+                            {{ description }}
+                        </div>
+                    </template>
+                    <div class="h-5 border-r border-neutral-400 hidden lg:block"></div>
                     <div class="hidden lg:block">
                         <strong class="text-neutral-400">Ctrl-C</strong> Close
                     </div>

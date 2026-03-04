@@ -32,7 +32,7 @@ const editing = () => {
 
 <template>
     <div class="flex flex-col-reverse h-full overflow-auto" ref="terminalRef">
-        <div class="flex z-10 items-center gap-2 sticky bottom-0 px-7 py-3 border-t border-neutral-700 bg-neutral-800">
+        <div class="hidden md:flex z-10 items-center gap-2 sticky bottom-0 px-7 py-3 border-t border-neutral-700 bg-neutral-800">
             <div>
                 $
             </div>

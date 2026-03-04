@@ -28,7 +28,7 @@ describe('Project tests', () => {
         const project = projects.value[1];
 
         browser.element.findByText(project.title).click();
-        browser.assert.urlEquals(browser.baseUrl + project.link);
+        browser.assert.urlEquals(browser.baseUrl + 'projects/' + project.title);
     })
 
 });
