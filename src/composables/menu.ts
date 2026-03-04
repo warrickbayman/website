@@ -1,6 +1,6 @@
-import type {MenuItem, Project} from "@/types";
+import type {Client, MenuItem, Project} from "@/types";
 import type {MenuType} from "@/stores/terminal.ts";
-import {type Client, clients} from "@/composables/clients.ts";
+import {clients} from "@/composables/clients.ts";
 import {projects} from "@/composables/projects.ts";
 import {oss} from "@/composables/oss.ts";
 

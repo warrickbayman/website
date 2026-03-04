@@ -28,7 +28,7 @@ describe('OSS tests', () => {
         const project = oss.value[1];
 
         browser.element.findByText(project.title).click();
-        browser.assert.urlEquals(browser.baseUrl + project.link);
+        browser.assert.urlEquals(browser.baseUrl + 'oss/' + project.title);
     })
 
 });

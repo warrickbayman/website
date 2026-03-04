@@ -20,7 +20,7 @@ const client = getClient(props.name);
                 <div class="detail">
                     <div class="label">URL:</div>
                     <div>
-                        <a :href="client.link" target="_blank" class="underline text-blue-400">{{ client.link }}</a>
+                        <a :href="client.url" target="_blank" class="underline text-blue-400">{{ client.url }}</a>
                     </div>
                 </div>
                 <div class="detail">

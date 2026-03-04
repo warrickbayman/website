@@ -2,9 +2,18 @@
 import ReaderLayout from "@/layouts/ReaderLayout.vue";
 import router from "@/router";
 import {onKeyStroke} from "@vueuse/core";
-import {ref} from "vue";
+import {computed, ref} from "vue";
 
-const env = [
+interface Block {
+    name: string;
+    version?: string;
+    description: string;
+    url: string;
+}
+
+type Stack = {title: string, items: Block[]};
+
+const env: Block[] = [
     {
         name: 'MacOS',
         version: '26 (Tahoe)',
@@ -28,12 +37,12 @@ const env = [
     }
 ]
 
-const browsers = [
+const browsers: Block[] = [
     {
-        name: 'Arc',
+        name: 'Dia',
         version: '1.136.0',
-        description: 'I loved what The Browser Company did with Arc. It\'s a great browser, and they have not been able to match it with Dia.',
-        url: 'https://mikrotik.com/',
+        description: 'I loved what The Browser Company did with Arc. Dia isn\'t quite there yet, but it\'s getting closer. The UI is also far better than anything else out there.',
+        url: 'https://diabrowser.com/',
     },{
         name: 'Zen',
         version: '1.18.10b',
@@ -47,7 +56,7 @@ const browsers = [
     }
 ];
 
-const tools = [
+const tools: Block[] = [
     {
         name: 'Jetbrains PHPStorm',
         version: '2025.3.3',
@@ -87,7 +96,7 @@ const tools = [
     }
 ]
 
-const documenting = [
+const documenting: Block[] = [
     {
         name: 'APIDog',
         version: '2.8',
@@ -101,7 +110,7 @@ const documenting = [
     }
 ]
 
-const agents = [
+const agents: Block[] = [
     {
         name: 'Jetbrains Junie',
         version: '-',
@@ -115,7 +124,7 @@ const agents = [
     }
 ];
 
-const stacks = [
+const stacks: Stack[] = [
     {
         title: 'Environment',
         items: env,
@@ -134,44 +143,113 @@ const stacks = [
     }
 ]
 
-onKeyStroke('Tab', () => {
+const blocks = computed(() => {
+    return stacks.flatMap(stack => stack.items);
+})
+
+const currentIndex = ref<number|null>(null);
+
+const currentBlock = computed(() => {
+    if (currentIndex.value === null) {
+        return null;
+    }
+
+    return blocks.value[currentIndex.value!];
+})
+
+const selectNext = () => {
+    if (currentIndex.value === null) {
+        currentIndex.value = 0;
+        scrollToSelected();
+        return;
+    }
+
+    if (currentIndex.value < blocks.value.length - 1) {
+        scrollToSelected();
+        currentIndex.value++;
+    }
+}
+
+const selectPrevious = () => {
+    if (currentIndex.value === null) {
+        currentIndex.value = blocks.value.length - 1;
+        scrollToSelected();
+        return;
+    }
+
+    if (currentIndex.value > 0) {
+        currentIndex.value--;
+        scrollToSelected();
+    }
+}
+
+const stackRef = ref<HTMLElement>();
+
+const scrollToSelected = () => {
+
+    const url = currentBlock.value?.url;
+    if (! url) {
+        return;
+    }
+
+    const urlEl = document.querySelector(`a[href="${url}"]`);
+    const el = urlEl?.parentElement?.parentElement;
+
+    el?.scrollIntoView({
+        behavior: 'smooth',
+    })
+}
+
+onKeyStroke((e) => e.key === 'Tab' && !e.shiftKey, (e) => {
+    e.preventDefault();
     selectNext();
 })
-onKeyStroke((e) => e.key === 'Tab' && e.shiftKey, () => {
+onKeyStroke((e) => e.key === 'Tab' && e.shiftKey, (e) => {
+    e.preventDefault();
     selectPrevious();
 })
 
-const selected = ref<number|null>(null);
+onKeyStroke('Enter', (e) => {
+    e.preventDefault();
+    if (! currentBlock.value?.url) {
+        return;
+    }
+
+    window.open(currentBlock.value.url, '_blank');
+})
 
 </script>
 
 <template>
     <ReaderLayout title="stack.md" @close="router.push('/')">
-        <section v-for="(stack, stackIndex) in stacks" :key="stackIndex">
-            <header>
-                <h1>{{ stack.title }}</h1>
-            </header>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-                <article
-                    class="flex flex-col border rounded"
-                    v-for="(item, itemIndex) in stack.items"
-                    :key="itemIndex"
-                    :class="{
-                        'border-green-500': itemIndex === selected,
+        <div ref="stackRef">
+            <section v-for="(stack, stackIndex) in stacks" :key="stackIndex">
+                <header>
+                    <h1>{{ stack.title }}</h1>
+                </header>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+                    <article
+                        class="flex flex-col border rounded"
+                        v-for="(item, itemIndex) in stack.items"
+                        :key="itemIndex"
+                        :class="{
+                        'border-neutral-500': currentBlock?.url !== item.url,
+                        'border-cyan-500': currentBlock?.url === item.url,
                     }"
-                >
-                    <header class="flex gap-3 border-b p-3">
-                        <div class="font-bold">{{ item.name }}</div>
-                        <div class="border-r border-neutral-500" />
-                        <div class="text-neutral-500">version <span class="text-cyan-400">{{ item.version }}</span></div>
-                    </header>
-                    <div class="p-3 flex-1">{{ item.description }}</div>
-                    <div class="border-t p-3 text-neutral-500 text-xs">
-                        {{ item.url }}
-                    </div>
-                </article>
-            </div>
-        </section>
+                    >
+                        <header class="flex gap-3 border-b p-3">
+                            <div class="font-bold">{{ item.name }}</div>
+                            <div class="border-r border-neutral-500" />
+                            <div class="text-neutral-500">version <span class="text-cyan-400">{{ item.version }}</span></div>
+                        </header>
+                        <div class="p-3 flex-1">{{ item.description }}</div>
+                        <a :href="item.url" class="block border-t p-3 text-neutral-500 text-xs">
+                            {{ item.url }}
+                        </a>
+                    </article>
+                </div>
+            </section>
+        </div>
     </ReaderLayout>
 </template>
 
