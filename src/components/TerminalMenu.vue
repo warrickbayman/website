@@ -50,7 +50,7 @@ onMounted(async () => {
 </script>
 
 <template>
-    <div ref="menuContent" class="overflow-hidden relative">
+    <div ref="menuContent" class="overflow-hidden relative text-sm md:text-base">
         <table>
             <tbody>
             <tr v-if="menuItems.length > 0">

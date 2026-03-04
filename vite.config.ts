@@ -13,6 +13,12 @@ export default defineConfig({
     vueDevTools(),
     tailwindcss(),
   ],
+
+  server: {
+    allowedHosts: [
+        'test.theawesomes.network',
+    ]
+  },
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
