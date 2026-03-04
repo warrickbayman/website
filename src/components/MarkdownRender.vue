@@ -9,9 +9,17 @@ const props = defineProps<{
 const html = ref('');
 
 const loadMarkdown = async () => {
+    const response = await fetch(`/md/${props.file}`);
+
+    if (! response.ok) {
+        return;
+    }
+
+    const data = await response.text();
+
     const md = markdownit({html: true})
-    const markdown = await import(`../../../md/${props.file}?raw`);
-    html.value = md.render(markdown.default);
+
+    html.value = md.render(data);
 }
 
 loadMarkdown();
