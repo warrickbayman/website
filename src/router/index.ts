@@ -1,5 +1,5 @@
 import {createRouter, createWebHistory } from 'vue-router'
-
+import NProgress from 'nprogress';
 import Home from "@/pages/Home.vue";
 
 const router = createRouter({
@@ -48,6 +48,17 @@ const router = createRouter({
     { path: '/readme', component: () => import("@/pages/Readme.vue"), name: 'readme' },
     { path: '/stack', component: () => import("@/pages/Stack.vue"), name: 'stack' },
   ],
+});
+
+router.beforeResolve((to, from, next) => {
+  if (to.name) {
+    NProgress.start();
+  }
+  next();
+})
+
+router.afterEach(() => {
+  NProgress.done();
 })
 
 export default router

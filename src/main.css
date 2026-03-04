@@ -1,6 +1,7 @@
 @import url(https://fonts.bunny.net/css?family=fira-code:300,500);
 @import "tailwindcss";
 @import "tw-animate-css";
+@import "nprogress/nprogress.css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -48,4 +49,9 @@
             @apply ml-5 pl-2 mb-3;
         }
     }
+}
+
+#nprogress .bar {
+    height: 8px;
+    @apply bg-cyan-500 top-1 left-1 right-1 w-auto rounded-full;
 }
