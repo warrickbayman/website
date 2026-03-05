@@ -51,6 +51,16 @@ const experience: ExperienceItem[] = [
 
 <template>
     <div class="p-4">
+        <div class="typography">
+            <strong>WORK EXPERIENCE</strong>
+            <p>
+                I've been fairly lucky with jobs. I've never really had to go look for work. I've always been found by
+                others and offered jobs even when I wasn't looking.
+            </p>
+            <p>
+                This work experience has given me the opportunity to build the skills I'm not proud of.
+            </p>
+        </div>
         <template v-for="(item, index) in experience" :key="index">
             <div class="flex">
                 <div class="w-12 mt-[0.2rem] flex flex-col items-center">

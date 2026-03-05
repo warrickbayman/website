@@ -8,8 +8,8 @@ import ProgressBar from "@/components/ProgressBar.vue";
         <div class="typography">
             <strong>WHAT'S NEXT?</strong>
             <p>
-                There's plenty of things I want to learn. Finding time to fit this all into my life can be heard, but
-                I'm always excited about new tech.
+                There's plenty of things I want to learn. Sometimes I get a bit stuck with what to do next, and finding
+                time to fit this all into my life can be hard, but I'm always excited about learning new tech.
             </p>
 
             <div class="grid gap-5">
@@ -18,12 +18,12 @@ import ProgressBar from "@/components/ProgressBar.vue";
                         <strong>React</strong>
                     </div>
                     <div class="text-neutral-500">
-                        I love working with Vue. It works the way I think. But I realize React would be a good tool for the
-                        collection.
+                        I love working with Vue. I feel like it could be a superior choice to React. However I realize
+                        that React could be a good tool for the collection.
                     </div>
                     <div class="mt-3 flex items-center gap-3">
                         <span>Potential</span>
-                        <ProgressBar class="flex-1" :progress="[65, 70]" />
+                        <ProgressBar class="flex-1" :progress="[50, 60]" />
                     </div>
                 </div>
                 <div class="border rounded border-neutral-500 p-3">
@@ -31,21 +31,25 @@ import ProgressBar from "@/components/ProgressBar.vue";
                         <strong>Golang</strong>
                     </div>
                     <div class="text-neutral-500">
-                        I've used Go for a few small personal projects, but I don't know enough to use it in production
-                        ready software. I'd like to push my skills here and eventually include it in my toolbox.
+                        I've started learning Go, but it can be quite different from what I'm used to. I'm very keen to
+                        learn more, though. I don't know enough yet to use it in production ready software and I'd like
+                        to find the time to push my skills here and eventually include it in my toolbox. I like the idea
+                        of what Go could bring to the table for me.
                     </div>
                     <div class="mt-3 flex items-center gap-3">
                         <span>Potential</span>
-                        <ProgressBar class="flex-1" :progress="[40, 50]" />
+                        <ProgressBar class="flex-1" :progress="[70, 80]" />
                     </div>
                 </div>
                 <div class="border rounded border-neutral-500 p-3">
                     <div>
-                        <strong>Rust</strong>
+                        <strong>Swift</strong>
                     </div>
                     <div class="text-neutral-500">
-                        I am intrigued by the notion of Rust. I've done some very basic intro work with Rust and I'm
-                        fascinated with the different path it takes from as apposed to more traditional languages.
+                        As an avid MacOS user, Swift been on my mind for a while. I did some introduction work with
+                        Swift, but never found the time to continue. I think swift opens some more doors for me that
+                        were not there before and provides a whole new set of skills. However, it's not at the top of
+                        my list.
                     </div>
                     <div class="mt-3 flex items-center gap-3">
                         <span>Potential</span>
@@ -57,15 +61,14 @@ import ProgressBar from "@/components/ProgressBar.vue";
                         <strong>AI</strong>
                     </div>
                     <div class="text-neutral-500">
-                        I am admittedly a little sceptical of AI tooling in software development. However, the tools
-                        I use have proven to be fairly decent. I'm a little old-school in the fact that I don't think
-                        that vibe coding is the way forward. It's not why I started programming. But AI has definitely
-                        made me more efficient. There are new AI tools every day and I'd like to explore some of these
-                        a little more.
+                        I am admittedly a little sceptical of AI tooling in software development. I do use AI tools fairly
+                        often, but I'm definitely not a "Vibe Coder". That's not why I started programming. The AI tools
+                        that I DO use have definitely made me more efficient. I have started working on ways to integrate
+                        AI more into my work, but I think there's still more to learn in this space.
                     </div>
                     <div class="mt-3 flex items-center gap-3">
                         <span>Potential</span>
-                        <ProgressBar class="flex-1" :progress="[65, 75]" />
+                        <ProgressBar class="flex-1" :progress="[85, 95]" />
                     </div>
                 </div>
             </div>

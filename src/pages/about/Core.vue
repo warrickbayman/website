@@ -6,7 +6,11 @@ const skills = [
         label: 'PHP',
         proficiency: [80, 90],
         description: 'I have an exceptional grasp of the PHP language and its associated tools.',
-    },{
+    }, {
+        label: 'Laravel',
+        proficiency: [70, 80],
+        description: 'Laravel is a PHP framework. I don\'t really use anything else and Laravel is my almost 100% my go-to choice.'
+    }, {
         label: 'HTML',
         proficiency: [80, 90],
         description: 'HTML forms the backbone of everything I create. Even if I don\'t write pure HTML anymore.',
@@ -18,30 +22,46 @@ const skills = [
         label: 'JavaScript',
         proficiency: [65, 75],
         description: 'I\'ve been using TypeScript for a while now, but without JavaScript, TypeScript is nothing.',
-    },{
+    }, {
+        label: 'Vue',
+        proficiency: [65, 70],
+        description: 'I love Vue. It works the way I think, and has become the main choice for many Laravel developers.'
+    }, {
         label: 'OS',
         proficiency: [80, 90],
-        description: 'I\'m confident with most operating systems, but I favour MacOS and Linux.',
+        description: 'I\'m confident with most operating systems, and can figure out most things, but I strongly favour MacOS and Linux.',
     },{
         label: 'Networking',
         proficiency: [60, 80],
-        description: 'I have a good grasp of computer networking and communication and run a small home-lab.',
+        description: 'I have a good grasp of computer networking and communication and run a small home-lab to test my skills on.',
     },{
         label: 'Browser',
         proficiency: [80, 90],
-        description: 'The browser is my space, And I work in this environment a lot. I have a good understand of what\'s possible.',
+        description: 'The browser is my space, And I work in this environment a lot. I have a good understand of what\'s possible and how the WWW works.',
     }
 ];
 </script>
 
 <template>
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 p-4">
-        <div class="border border-neutral-500 rounded p-3 min-h-28" v-for="skill in skills">
-            <strong>{{ skill.label }}</strong>
-            <hr class="my-3" />
-            <ProgressBar :progress="skill.proficiency" />
-            <div class="text-sm mt-3">
-                {{ skill.description }}
+    <div>
+        <div class="typography p-4">
+            <strong class="text-white">
+                CORE SKILLS
+            </strong>
+            <p>
+                These are the skills that allow me to do what I do. I do believe that there is always more than one
+                way to do something, and that there is generally more than one right answer when it comes to building
+                software, but these are the choices I made early on and have spent years getting good at these.
+            </p>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 p-4">
+            <div class="border border-neutral-500 rounded p-3 min-h-28" v-for="skill in skills">
+                <strong>{{ skill.label }}</strong>
+                <hr class="my-3" />
+                <ProgressBar :progress="skill.proficiency" />
+                <div class="text-sm mt-3">
+                    {{ skill.description }}
+                </div>
             </div>
         </div>
     </div>

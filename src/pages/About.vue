@@ -74,6 +74,12 @@ const menuItems: MenuItem[] = [
         class: 'text-orange-400',
         link: '/about/experience'
     }, {
+        label: 'Education',
+        shortLabel: 'Edu',
+        progress: 'DONE',
+        class: 'text-green-400',
+        link: '/about/education',
+    }, {
         label: 'Future Thinking',
         shortLabel: 'Fut',
         progress: 'PEND',
@@ -91,6 +97,7 @@ switch (route.name) {
     case 'core': current.value = 1; break;
     case 'current': current.value = 2; break;
     case 'experience': current.value = 3; break;
+    case 'education': current.value = 3; break
     case 'future': current.value = 4; break;
 }
 

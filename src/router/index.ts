@@ -19,6 +19,7 @@ const router = createRouter({
         { path: '/about/core', component: () => import("@/pages/about/Core.vue"), name: 'core' },
         { path: '/about/current', component: () => import("@/pages/about/Current.vue"), name: 'current' },
         { path: '/about/experience', component: () => import("@/pages/about/Experience.vue"), name: 'experience' },
+        { path: '/about/education', component: () => import('@/pages/about/Education.vue'), name: 'education' },
         { path: '/about/future', component: () => import("@/pages/about/Future.vue"), name: 'future'},
       ]
     },

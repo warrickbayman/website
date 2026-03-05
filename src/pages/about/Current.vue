@@ -4,7 +4,7 @@
 
 <template>
     <div class="typography p-4">
-        <strong>Current Job</strong>
+        <strong>WHAT I DO NOW</strong>
         <img src="/images/tpg.png" alt="THEPUBLICGOOD" class="w-64 my-5" />
         <ul>
             <li>
