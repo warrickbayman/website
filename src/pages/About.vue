@@ -2,7 +2,7 @@
 import { onUnmounted, ref } from "vue";
 import { onKeyStroke } from "@vueuse/core";
 import router from "@/router";
-import { useRoute } from "vue-router";
+import {onBeforeRouteUpdate, useRoute} from "vue-router";
 import { XIcon } from "lucide-vue-next";
 
 const rates = ref<{t: number, b: number}[]>([])
@@ -102,6 +102,10 @@ switch (route.name) {
 }
 
 const mainRef = ref<HTMLElement>();
+
+onBeforeRouteUpdate(() => {
+    mainRef.value?.scrollTo({top: 0, behavior: 'smooth'})
+})
 
 const navigateDown = (e: KeyboardEvent) => {
     e.preventDefault();
