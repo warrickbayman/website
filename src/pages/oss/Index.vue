@@ -9,7 +9,7 @@ terminal.setMenu('oss');
 </script>
 
 <template>
-    <TerminalLayout path="/oss">
+    <TerminalLayout path="/oss" return="/">
         <TerminalMenu menu="oss" />
     </TerminalLayout>
 </template>

@@ -3,9 +3,11 @@
 import TerminalInput from "@/components/TerminalInput.vue";
 import { ref} from "vue";
 import {onKeyStroke} from "@vueuse/core";
+import router from "@/router";
 
-defineProps<{
+const props = defineProps<{
     path?: string;
+    return?: string;
 }>();
 
 const terminalRef = ref<HTMLElement>();
@@ -23,6 +25,13 @@ onKeyStroke(e => e.key === 'ArrowDown' && e.metaKey, e => {
     e.preventDefault();
     terminalRef.value?.scrollBy({left: 0, top: 20, behavior: 'smooth'});
 });
+
+onKeyStroke('Escape', (e) => {
+    if (props.return) {
+        e.preventDefault();
+        router.push(props.return);
+    }
+})
 
 const editing = () => {
     terminalRef.value?.scrollTo({left: 0, top: terminalRef.value.scrollHeight, behavior: 'smooth'})
