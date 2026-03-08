@@ -8,6 +8,7 @@ import type {MenuItem} from "@/types";
 const props = defineProps<{
     menu: MenuType;
     delay?: number;
+    esc?: boolean;
 }>();
 
 const terminal = useTerminalStore();
@@ -55,7 +56,14 @@ onMounted(async () => {
             <tbody>
             <tr v-if="menuItems.length > 0">
                 <td colspan="7">
-                    total {{ terminal.menuItems.length }}
+                    <div class="flex gap-5">
+                        <div>
+                            total {{ terminal.menuItems.length }}
+                        </div>
+                        <div class="text-neutral-600" v-if="esc">
+                            (ESC to go back)
+                        </div>
+                    </div>
                 </td>
             </tr>
             <template v-for="(item, index) in menuItems" :key="index">

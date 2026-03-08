@@ -9,6 +9,7 @@ export interface MenuItem {
     time?: string;
     name: string;
     link?: string;
+    hint?: string;
 }
 
 export interface Project {

@@ -12,4 +12,5 @@ I still use Platoon today, even within my own CI/CD pipelines at Gitlab.
 
 There is a comprehensive documentation website for Platoon, which can be found at [https://tpg.github.io/platoon/](https://tpg.github.io/platoon/).
 
-Platoon is still maintained, but it just works and we haven't had any need for additional features.
+Platoon is still maintained, but doesn't really get a lot of work. I haven't had any need for additional features and it
+does what it says on the tin.

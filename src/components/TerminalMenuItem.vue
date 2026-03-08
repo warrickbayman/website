@@ -36,6 +36,9 @@ const itemType = computed(() => props.item.link ? RouterLink : 'div')
                 <template v-else>
                     {{ item.name }}
                 </template>
+                <span v-if="item.hint" class="ml-5 rounded border border-neutral-700 bg-neutral-800 text-neutral-400 text-sm py-1 px-4">
+                    {{ item.hint }}
+                </span>
             </component>
         </td>
     </tr>

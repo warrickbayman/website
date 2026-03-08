@@ -11,9 +11,9 @@ describe('Home page tests', () => {
     it('Will accept arrow key navigation', () => {
         browser.waitForElementVisible('.menu-item:last-child');
         browser.sendKeys('body', Keys.ARROW_DOWN)
-            .element.find('.search-result').getText().assert.contains('about_me');
+            .element.find('.search-result').getText().assert.contains('.gitignore');
 
-        browser.sendKeys('body', Keys.ARROW_DOWN)
+        browser.sendKeys('body', Keys.ARROW_DOWN).sendKeys('body', Keys.ARROW_DOWN)
             .element.find('.search-result').getText().assert.contains('clients/');
 
         browser.sendKeys('body', Keys.ARROW_UP)

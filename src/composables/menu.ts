@@ -10,14 +10,9 @@ export function useMenu() {
         {
             directory: true,
             name: '.',
-        }, {
-            directory: true,
-            owner: 'root',
-            group: 'root',
-            name: '..',
-            permissions: 'rwx------',
         },{
             name: '.gitignore',
+            link: '/gitignore',
         },{
             name: 'about_me',
             link: '/about',

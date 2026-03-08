@@ -6,7 +6,7 @@ import TerminalMenu from "@/components/TerminalMenu.vue";
 
 <template>
     <TerminalLayout path="/projects" return="/">
-        <TerminalMenu menu="projects" />
+        <TerminalMenu menu="projects" :esc="true" />
     </TerminalLayout>
 </template>
 

@@ -11,6 +11,10 @@ const router = createRouter({
       name: 'home',
     },
     {
+      path: '/gitignore',
+      component: () => import("@/pages/GitIgnore.vue"),
+    },
+    {
       path: '/about',
       component: () => import("@/pages/About.vue"),
       name: 'about',

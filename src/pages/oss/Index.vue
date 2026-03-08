@@ -10,7 +10,7 @@ terminal.setMenu('oss');
 
 <template>
     <TerminalLayout path="/oss" return="/">
-        <TerminalMenu menu="oss" />
+        <TerminalMenu menu="oss" :esc="true" />
     </TerminalLayout>
 </template>
 
