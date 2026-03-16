@@ -20,31 +20,38 @@ const experience: ExperienceItem[] = [
         link: 'https://thepublicgood.dev/',
     },{
         label: 'Mycalture Marketing cc.',
-        role: 'Lead Developer',
+        role: 'Technical Lead/Lead Developer',
         tasks: 'Full-stack web developer, devops, team leader.',
-        duration: '2018 - 2020',
+        duration: '2018 - 2021',
         link: 'https://mycalture.com/',
         reason: 'Started my own business',
     },{
         label: 'Whodunnit cc.',
         role: 'Web developer && designer',
         tasks: 'Full-stack web developer, web designer, graphic designer.',
-        duration: '2014 - 2017',
+        duration: '2014 - 2018',
         link: 'https://whodunnit.co.za/',
         reason: 'Got a better job',
+    },{
+        label: 'Halogen Graphics',
+        role: 'Founder/Co-Owner',
+        tasks: 'Web designer',
+        duration: '2010 - 2012',
+        reason: 'Closed the business'
     },{
         label: 'Midrand Graduate Institute (Pearson Institute)',
         role: 'Web & Multimedia lecturer',
         tasks: 'Course developer and lecturer in the Graphic Design department.',
-        duration: '2004 - 2013',
-        link: 'https://www.pearson.imgraham.co.za/',
+        duration: '2006 - 2014',
+        link: 'https://www.pearson.com',
         reason: 'Got a better job',
     },{
-        label: 'Halogen Graphics',
-        role: 'Co-Owner',
-        tasks: 'Web designer',
-        duration: '2003 - 2004',
-        reason: 'Not good enough to run a business'
+        label: 'TX Branding',
+        role: '3D Animator',
+        tasks: 'animation, 3d design',
+        duration: 'Jan 2006 - October 2006',
+        link: 'https://www.pearson.imgraham.co.za/',
+        reason: 'Realized 3D animation probably wasn\'t my thing',
     }
 ]
 </script>
