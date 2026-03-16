@@ -8,10 +8,10 @@ MotorPress is the largest automotive media distribution platform in South Africa
 likes of Audi, BYD, Changan, Daimler Truck, Datsun, Ford, Hino, Honda, Jaguar Land Rover, Jetour, Kia,
 and a plenty more.
 
-Clients provide content for press-releases including text, image, video and audio and the MotorPress
+Clients provide content for press releases including text, image, video, and audio. MotorPress
 provides a clean environment where journalists and publications can find the content they need.
 
-MotorPress also managed a fairly large database of contacts within the automative industry and content
+MotorPress also managed a fairly large database of contacts within the automative industry, and content
 is delivered directly to their inboxes when press-releases are published.
 
 ## Lessons in Email
@@ -19,4 +19,4 @@ is delivered directly to their inboxes when press-releases are published.
 One of the biggest lessons I learnt from MotorPress was how to deal with Email. Even right in the
 beginning we were sending larger volumes of emails than I had ever dealt with before. In those early
 days, we even managed our on SMTP server for sending mass mail, but we quickly migrated to the likes
-of MailGun. Today MotorPress delivers around 300,000 emails month.
+of MailGun. Today MotorPress delivers around 300 thousand emails a month.

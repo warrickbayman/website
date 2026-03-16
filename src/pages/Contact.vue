@@ -92,14 +92,14 @@ onKeyStroke('Escape', () => {
             <div class="typography">
                 <h1>Getting Hold of Me</h1>
                 <p>
-                    I'm currently in the market for something new. I've been working for myself for a few years now, but
+                    I'm currently in the market for something new. I've been working for myself for a few years, but
                     am now ready to close up shop and relocate if the right offer comes along.
                 </p>
                 <h2>Why hire me?</h2>
                 <p>
                     I've always felt that I'm a good employee. I'm focused, eager to learn new things, fascinated by
                     technologies and the new challenges they bring. I enjoy working with people, can contribute a lot
-                    to a team without being overbearing and I'm able to adapt to new situations.
+                    to a team and I'm able to adapt to new situations.
                 </p>
                 <p>
                     I love what I do and I'm excited to join a team that shares my passion for technology and innovation.

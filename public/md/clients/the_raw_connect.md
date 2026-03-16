@@ -1,5 +1,5 @@
 The Raw Connect (officially TRC) is an interesting business. They started as a platform attempting to offer
-a complete online marking package to small business, including a simple home page, a new feed, an online
+a complete online marketing package to small business, including a simple home page, a news feed, an online
 store and a booking platform.
 
 TRC has changed somewhat from the original idea, but much of the feature set remains. Recently they have

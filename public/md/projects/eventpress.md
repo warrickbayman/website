@@ -1,7 +1,7 @@
 # End-to-End Event Management
 
 EventPress is probably the project I work on the most and spend at least half my work week on this one
-application. It is existence of EventPress that has allowed me to work for myself.
+application. It is the existence of EventPress that has allowed me to work for myself.
 
 EventPress was started in 2017 in response to a simple request from a subsidiary of one of South Africa's
 largest financial institutions (from here on, referred to as "The Bank"). That request was to develop a

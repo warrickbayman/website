@@ -1,8 +1,8 @@
 HotPress Media is easily the client that I spent the most amount of time working with. The owner, Greg
 Groothedde and I have had a strong partnership for many years.
 
-Greg and I worked together for the first time as partners at Halogen Graphics, the new defunct design
-and development business. It was doomed to fail as we were young and didn't really know what we were
+Greg and I worked together for the first time as partners at Halogen Graphics, the now defunct design
+and development business. It was doomed to close as we were young and didn't really know what we were
 doing.
 
 But we learnt a lot from that experience. We parted ways for a short while, but we eventually started

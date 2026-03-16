@@ -9,7 +9,7 @@ const skills = [
     }, {
         label: 'Laravel',
         proficiency: [70, 80],
-        description: 'Laravel is a PHP framework. I don\'t really use anything else and Laravel is my almost 100% my go-to choice.'
+        description: 'I don\'t really use anything else and Laravel is my almost 100% my go-to choice.',
     }, {
         label: 'HTML',
         proficiency: [80, 90],
@@ -21,11 +21,11 @@ const skills = [
     },{
         label: 'JavaScript',
         proficiency: [65, 75],
-        description: 'I\'ve been using TypeScript for a while now, but without JavaScript, TypeScript is nothing.',
+        description: 'I\'ve been using TypeScript for a while now, and can sometimes find it hard to go back to JavaScript',
     }, {
         label: 'Vue',
         proficiency: [65, 70],
-        description: 'I love Vue. It works the way I think, and has become the main choice for many Laravel developers.'
+        description: 'I love Vue. It works the way I think, and has become the main choice for many Laravel developers including me.'
     }, {
         label: 'OS',
         proficiency: [80, 90],
@@ -38,6 +38,10 @@ const skills = [
         label: 'Browser',
         proficiency: [80, 90],
         description: 'The browser is my space, And I work in this environment a lot. I have a good understand of what\'s possible and how the WWW works.',
+    },{
+        label: 'Go',
+        proficiency: [10, 25],
+        description: 'I recently started working with Go. Purely as a personal project and have found the language to be really interesting. Still a lot to learn.'
     }
 ];
 </script>
@@ -51,7 +55,7 @@ const skills = [
             <p>
                 These are the skills that allow me to do what I do. I do believe that there is always more than one
                 way to do something, and that there is generally more than one right answer when it comes to building
-                software, but these are the choices I made early on and have spent years getting good at these.
+                software, but these are the choices I made and have spent many hours focused on them.
             </p>
         </div>
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 p-4">

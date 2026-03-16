@@ -40,16 +40,17 @@ const experience: ExperienceItem[] = [
         <div class="typography">
             <strong>WHAT THEY TAUGHT ME</strong>
             <p>
-                I have a bit of checkered educational past, but I still managed to earn some things I am proud of.
+                I have a bit of a checkered educational past, but I still managed to earn some things I am really proud of.
                 I didn't follow the traditional "computer science" path, but I believe now that I have an edge because
-                of the path followed.
+                of the path I DID follow.
             </p>
             <p>
                 I went the graphic design route. Probably because of some peer pressure at the time. I had a good friend
                 who is an immensely talented designer, and I wanted to follow in his footsteps.
             </p>
             <p>
-                But I wasn't as good as him. And computers were a big distraction for me when I was younger.
+                But it wasn't the perfect fit for me, and computers were a big distraction. It took me some time to realize
+                what I was supposed to do.
             </p>
         </div>
         <template v-for="(item, index) in experience" :key="index">
