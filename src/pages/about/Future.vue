@@ -61,10 +61,10 @@ import ProgressBar from "@/components/ProgressBar.vue";
                         <strong>AI</strong>
                     </div>
                     <div class="text-neutral-500">
-                        I am admittedly a little sceptical of AI tooling in software development. I do use AI tools fairly
-                        often, but I'm definitely not a "Vibe Coder". That's not why I started programming. The AI tools
-                        that I DO use have definitely made me more efficient. I have started working on ways to integrate
-                        AI more into my work, but I think there's still more to learn in this space.
+                        I am admittedly a little sceptical of AI in general. I currently use Anthropic's Claude Code
+                        a fair amount, but I'm definitely not a "Vibe Coder". I am aware of a marked increase in my
+                        productivity as AI has become a tool I reach for more often, but I think I still have a lot to
+                        learn in this space.
                     </div>
                     <div class="mt-3 flex items-center gap-3">
                         <span>Potential</span>
