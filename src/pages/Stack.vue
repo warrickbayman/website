@@ -113,15 +113,15 @@ const documenting: Block[] = [
 
 const agents: Block[] = [
     {
+        name: 'Anthropic Claude',
+        version: '-',
+        description: 'Claude is a relatively new tool in the toolbox, but It has already proved itself a worthy addition.',
+        url: 'https://claude.com/product/claude-code',
+    },{
         name: 'Jetbrains Junie',
         version: '-',
         description: 'I\'ve been using Junie since it was launched back in 2025, but recently switched to Claude',
         url: 'https://www.jetbrains.com/junie/',
-    },{
-        name: 'Anthropic Claude',
-        version: '-',
-        description: 'Claude is my default AI agent. I don\'t do any "vibe coding", but I use Claude to do plenty of things while writing code myself.',
-        url: 'https://claude.com/product/claude-code',
     }
 ];
 
